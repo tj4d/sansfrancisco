@@ -48,12 +48,14 @@ h2 {
     font-weight: 500;
     line-height: 1.20;
     opacity: 1.00;
-    margin-top: 30px;
+    margin-top: 60px;
     margin-bottom: 5px;
     letter-spacing: 0.00px;
     word-spacing: 0.00px;
     text-transform: none;
 }
+
+
 
 h3 {
     font-family: "brandon-grotesque", sans serif;
@@ -87,6 +89,18 @@ p{
 ul{
 	list-style-type: none;
 	padding: 0;
+}
+
+a{
+	color: #222;
+	text-decoration: none;
+}
+a:visited{
+	color: #222;
+}
+a:hover{
+	background-color: transparent;
+	color: #222;
 }
 
 .container{
@@ -252,19 +266,71 @@ li{
 	float: left;
 	font-weight: 800;
 	clear: right;
-	a{
-		color: #222;
-		text-decoration: none;
-	}
-	a:visited{
-		color: #222;
-	}
-	a:hover{
-		background-color: transparent;
-	}
 }
 
 .navMarker, .navMarker > i, li {
 	transition-timing-function: ease;
   	transition: 0.25s;
+}
+
+.dataTable h2:first-child{
+	margin-top: 0;
+}
+
+.breakerBar{
+	height: 10px;
+	width: 50px;
+}
+
+.dataTable{
+	h2:nth-of-type(1) + .breakerBar{
+		background-color: #EDB0B1;
+	}
+
+	h2:nth-of-type(2) + .breakerBar{
+		background-color: #F8DCB6;
+	}
+
+	h2:nth-of-type(3) + .breakerBar{
+		background-color: #D9EDB0;
+	}
+
+	h2:nth-of-type(4) + .breakerBar{
+		background-color: #B0EDB0;
+	}
+
+	h2:nth-of-type(5) + .breakerBar{
+		background-color: #B0EDD7;
+	}
+
+	h2:nth-of-type(6) + .breakerBar{
+		background-color: #B0DAED;
+	}
+
+	h2:nth-of-type(7) + .breakerBar{
+		background-color: #B0B1ED;
+	}
+
+	h2:nth-of-type(8) + .breakerBar{
+		background-color: #D4B0ED;
+	}
+
+	h2:nth-of-type(9) + .breakerBar{
+		background-color: #EDB0E1;
+	}
+}
+
+.resource{
+	position: relative;
+	.resourceFavicon{
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 24px;
+		height: 24px;
+		background: left bottom no-repeat;
+	}
+	h3, .resourceDescription{
+		margin-left: 31px;
+	}
 }
