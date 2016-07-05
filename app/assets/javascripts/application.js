@@ -13,17 +13,25 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require semantic-ui
 //= require_tree .
 
-$('a[href^="#"]').on('click', function(event) {
-
-    var target = $(this.getAttribute('href'));
-
-    if( target.length ) {
-        event.preventDefault();
-        $('html, body').stop().animate({
-            scrollTop: target.offset().top
-        }, 1000);
-    }
+$( document ).ready(function() {
+   
+   // scroll to div
+   $('a').click(function(){
+      $('html, body').animate({
+          scrollTop: $( $(this).attr('href') ).offset().top - 40
+      }, 500);
+      return false;
+  });
+  
+  // sidebar sticky
+  $('.ui.sticky')
+	.sticky({
+	  offset: 50,
+	  context: '#dataTable'
+	});
 
 });
+

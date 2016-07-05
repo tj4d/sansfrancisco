@@ -17,8 +17,48 @@
 @import "neat";
 @import "scaffolds";
 @import "resources";
+@import "semantic-ui";
 
 @import 'https://fonts.googleapis.com/css?family=Anonymous+Pro:400';
+$mobile-size:em(320);
+$tablet-size:720px;
+$desktop-size:em(960);
+$largedesktop-size:em(1050);
+
+// Bourbon Neat Breakpoints
+$mobile: new-breakpoint(min-width $mobile-size 4);
+$desktop: new-breakpoint(min-width $desktop-size 12);
+
+.header, .announcement, .mainContent {
+    @include span-columns(10);
+	@include shift(1);
+}
+
+.sideNav{
+	@include span-columns(3 of 10);
+}
+
+.dataTable{
+	@include span-columns(7 of 10);
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+	.sideNav, .rightNav{
+		display: none;
+	}
+
+	.announcement{
+		margin-top: 70px !important;
+	}
+
+	.ui.fixed.sticky + .dataTable {
+	  @include shift(3);
+	}
+
+	.dataTable{
+		@include span-columns(10 of 10);
+	}
+}
 
 html {
     -webkit-font-smoothing: antialiased;
@@ -89,6 +129,7 @@ p{
 ul{
 	list-style-type: none;
 	padding: 0;
+	margin-top: 0.5em;
 }
 
 a{
@@ -103,20 +144,15 @@ a:hover{
 	color: #222;
 }
 
-.container{
-	@include outer-container;
-}
-
 .header{
-	@include span-columns(8);
-	@include shift(2);
 	h3{
 		font-weight: 900;
 		float: left;
+		margin-top: 30px;
 	}
 	p{
 		float: right;
-		margin: 50px 0 0 50px !important;
+		margin: 48px 0 0 50px !important;
 	}
 	.active{
 		border-bottom: 5px solid #EDB0B1;
@@ -124,21 +160,25 @@ a:hover{
 }
 
 .announcement{
-	@include span-columns(8);
-	@include shift(2);
 	margin-top: 150px;
 }
 
 .mainContent{
-	@include span-columns(8);
-	@include shift(2);
 	margin-top: 100px;
 	.sideNav{
-		@include span-columns(2 of 8);
+		margin-right: 2.79%;
 	}
-	.dataTable{
-		@include span-columns(6 of 8);
-	}
+}
+
+.ui.fixed.sticky + .dataTable {
+  @include shift(3);
+}
+
+.navItem{
+	display: block;
+	width: 100%;
+	height: 20px;
+	clear: both;
 }
 
 .navItem:nth-child(1){
@@ -333,4 +373,9 @@ li{
 	h3, .resourceDescription{
 		margin-left: 31px;
 	}
+}
+
+footer img{
+	margin-top: 10em;
+	width: 100%;
 }

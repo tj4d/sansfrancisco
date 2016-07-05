@@ -6,15 +6,18 @@
       Sans<br>
       Francisco
     </h3>
-    <p>
-      <strong style="text-decoration: line-through">Jobs</strong> (Coming Soon)
-    </p>
-    <p>
-      <strong style="text-decoration: line-through">Learn</strong> (Coming Soon)
-    </p>
-    <p class="active">
-      <strong>Resources</strong>
-    </p>
+
+    <div class="rightNav">
+      <p>
+        <strong style="text-decoration: line-through">Jobs</strong> (Coming Soon)
+      </p>
+      <p>
+        <strong style="text-decoration: line-through">Learn</strong> (Coming Soon)
+      </p>
+      <p class="active">
+        <strong>Resources</strong>
+      </p>
+    </div>
   </div>
 
   <!-- ****** Large Announcement ****** -->
@@ -28,11 +31,11 @@
   <div class="mainContent">
 
     <!-- ****** Side Navigation ****** -->
-    <div class="sideNav">
+    <div class="sideNav ui sticky">
       <ul>
         <div class="navItem activeNavItem">
           <div class="navMarker"><i></i></div>
-          <li><a href="#user-research" class="sidNavLink">User Research</a></li>
+          <li><a href="#user-research" class="sidNavLink" id="user-research-link">User Research</a></li>
         </div>
         <div class="navItem">
           <div class="navMarker"><i></i></div>
@@ -70,7 +73,7 @@
     </div>
 
     <!-- ****** Resources List ****** -->
-    <div class="dataTable">
+    <div class="dataTable" id="dataTable">
       <!-- ****** Resources Category ****** -->
       <h2 id="user-research">
         User Research
@@ -260,7 +263,10 @@
         <% end %>
       <% end %>
 
-
     </div>
   </div>
+
+  <footer>
+    <%= image_tag("footer.png", :alt => "Footer") %>
+  </footer>
 </div>
