@@ -105,10 +105,33 @@
                 <%= resource.name %>
               </h3>
             </a>
-            
-            <button class="ui basic compact icon right floated button">
-              <i class="heart icon" style="color: #EDB0B1"></i> 312
-            </button>
+
+            <% if current_user %>
+              <!-- Allow the current user to vote or unvote -->
+              <% if (current_user.liked? resource) %>
+                <!-- Unlike -->
+                <%= link_to unlike_resource_path(resource), method: :put do %>
+                  <button class="ui basic compact icon right floated button">
+                    <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
+                  </button> 
+                <% end %>
+              <% else %>
+                <!-- Like -->
+                <%= link_to like_resource_path(resource), method: :put do %>
+                  <button class="ui basic compact icon right floated button">
+                    <i class="heart icon" style="color: #F1F1F1"></i> <%= resource.get_likes.size %>
+                  </button> 
+                <% end %>
+              <% end %>
+            <% else %>
+              <!-- Force the stranger to sign in before voting -->
+              <%= link_to "/auth/twitter" do %>
+                <button class="ui basic compact icon right floated button">
+                  <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
+                </button> 
+              <% end %>
+            <% end %>
+
             <p class="resourceDescription">
               <%= resource.description %>
             </p>
@@ -130,6 +153,33 @@
                 <%= resource.name %>
               </h3>
             </a>
+
+            <% if current_user %>
+              <!-- Allow the current user to vote or unvote -->
+              <% if (current_user.liked? resource) %>
+                <!-- Unlike -->
+                <%= link_to unlike_resource_path(resource), method: :put do %>
+                  <button class="ui basic compact icon right floated button">
+                    <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
+                  </button> 
+                <% end %>
+              <% else %>
+                <!-- Like -->
+                <%= link_to like_resource_path(resource), method: :put do %>
+                  <button class="ui basic compact icon right floated button">
+                    <i class="heart icon" style="color: #F1F1F1"></i> <%= resource.get_likes.size %>
+                  </button> 
+                <% end %>
+              <% end %>
+            <% else %>
+              <!-- Force the stranger to sign in before voting -->
+              <%= link_to "/auth/twitter" do %>
+                <button class="ui basic compact icon right floated button">
+                  <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
+                </button> 
+              <% end %>
+            <% end %>
+
             <p class="resourceDescription">
               <%= resource.description %>
             </p>
@@ -151,6 +201,33 @@
                 <%= resource.name %>
               </h3>
             </a>
+
+            <% if current_user %>
+              <!-- Allow the current user to vote or unvote -->
+              <% if (current_user.liked? resource) %>
+                <!-- Unlike -->
+                <%= link_to unlike_resource_path(resource), method: :put do %>
+                  <button class="ui basic compact icon right floated button">
+                    <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
+                  </button> 
+                <% end %>
+              <% else %>
+                <!-- Like -->
+                <%= link_to like_resource_path(resource), method: :put do %>
+                  <button class="ui basic compact icon right floated button">
+                    <i class="heart icon" style="color: #F1F1F1"></i> <%= resource.get_likes.size %>
+                  </button> 
+                <% end %>
+              <% end %>
+            <% else %>
+              <!-- Force the stranger to sign in before voting -->
+              <%= link_to "/auth/twitter" do %>
+                <button class="ui basic compact icon right floated button">
+                  <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
+                </button> 
+              <% end %>
+            <% end %>
+
             <p class="resourceDescription">
               <%= resource.description %>
             </p>
@@ -172,6 +249,33 @@
                 <%= resource.name %>
               </h3>
             </a>
+
+            <% if current_user %>
+              <!-- Allow the current user to vote or unvote -->
+              <% if (current_user.liked? resource) %>
+                <!-- Unlike -->
+                <%= link_to unlike_resource_path(resource), method: :put do %>
+                  <button class="ui basic compact icon right floated button">
+                    <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
+                  </button> 
+                <% end %>
+              <% else %>
+                <!-- Like -->
+                <%= link_to like_resource_path(resource), method: :put do %>
+                  <button class="ui basic compact icon right floated button">
+                    <i class="heart icon" style="color: #F1F1F1"></i> <%= resource.get_likes.size %>
+                  </button> 
+                <% end %>
+              <% end %>
+            <% else %>
+              <!-- Force the stranger to sign in before voting -->
+              <%= link_to "/auth/twitter" do %>
+                <button class="ui basic compact icon right floated button">
+                  <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
+                </button> 
+              <% end %>
+            <% end %>
+
             <p class="resourceDescription">
               <%= resource.description %>
             </p>
@@ -193,6 +297,33 @@
                 <%= resource.name %>
               </h3>
             </a>
+
+            <% if current_user %>
+              <!-- Allow the current user to vote or unvote -->
+              <% if (current_user.liked? resource) %>
+                <!-- Unlike -->
+                <%= link_to unlike_resource_path(resource), method: :put do %>
+                  <button class="ui basic compact icon right floated button">
+                    <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
+                  </button> 
+                <% end %>
+              <% else %>
+                <!-- Like -->
+                <%= link_to like_resource_path(resource), method: :put do %>
+                  <button class="ui basic compact icon right floated button">
+                    <i class="heart icon" style="color: #F1F1F1"></i> <%= resource.get_likes.size %>
+                  </button> 
+                <% end %>
+              <% end %>
+            <% else %>
+              <!-- Force the stranger to sign in before voting -->
+              <%= link_to "/auth/twitter" do %>
+                <button class="ui basic compact icon right floated button">
+                  <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
+                </button> 
+              <% end %>
+            <% end %>
+
             <p class="resourceDescription">
               <%= resource.description %>
             </p>
@@ -214,6 +345,33 @@
                 <%= resource.name %>
               </h3>
             </a>
+
+            <% if current_user %>
+              <!-- Allow the current user to vote or unvote -->
+              <% if (current_user.liked? resource) %>
+                <!-- Unlike -->
+                <%= link_to unlike_resource_path(resource), method: :put do %>
+                  <button class="ui basic compact icon right floated button">
+                    <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
+                  </button> 
+                <% end %>
+              <% else %>
+                <!-- Like -->
+                <%= link_to like_resource_path(resource), method: :put do %>
+                  <button class="ui basic compact icon right floated button">
+                    <i class="heart icon" style="color: #F1F1F1"></i> <%= resource.get_likes.size %>
+                  </button> 
+                <% end %>
+              <% end %>
+            <% else %>
+              <!-- Force the stranger to sign in before voting -->
+              <%= link_to "/auth/twitter" do %>
+                <button class="ui basic compact icon right floated button">
+                  <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
+                </button> 
+              <% end %>
+            <% end %>
+
             <p class="resourceDescription">
               <%= resource.description %>
             </p>
@@ -235,6 +393,33 @@
                 <%= resource.name %>
               </h3>
             </a>
+
+            <% if current_user %>
+              <!-- Allow the current user to vote or unvote -->
+              <% if (current_user.liked? resource) %>
+                <!-- Unlike -->
+                <%= link_to unlike_resource_path(resource), method: :put do %>
+                  <button class="ui basic compact icon right floated button">
+                    <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
+                  </button> 
+                <% end %>
+              <% else %>
+                <!-- Like -->
+                <%= link_to like_resource_path(resource), method: :put do %>
+                  <button class="ui basic compact icon right floated button">
+                    <i class="heart icon" style="color: #F1F1F1"></i> <%= resource.get_likes.size %>
+                  </button> 
+                <% end %>
+              <% end %>
+            <% else %>
+              <!-- Force the stranger to sign in before voting -->
+              <%= link_to "/auth/twitter" do %>
+                <button class="ui basic compact icon right floated button">
+                  <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
+                </button> 
+              <% end %>
+            <% end %>
+
             <p class="resourceDescription">
               <%= resource.description %>
             </p>
@@ -256,6 +441,33 @@
                 <%= resource.name %>
               </h3>
             </a>
+
+            <% if current_user %>
+              <!-- Allow the current user to vote or unvote -->
+              <% if (current_user.liked? resource) %>
+                <!-- Unlike -->
+                <%= link_to unlike_resource_path(resource), method: :put do %>
+                  <button class="ui basic compact icon right floated button">
+                    <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
+                  </button> 
+                <% end %>
+              <% else %>
+                <!-- Like -->
+                <%= link_to like_resource_path(resource), method: :put do %>
+                  <button class="ui basic compact icon right floated button">
+                    <i class="heart icon" style="color: #F1F1F1"></i> <%= resource.get_likes.size %>
+                  </button> 
+                <% end %>
+              <% end %>
+            <% else %>
+              <!-- Force the stranger to sign in before voting -->
+              <%= link_to "/auth/twitter" do %>
+                <button class="ui basic compact icon right floated button">
+                  <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
+                </button> 
+              <% end %>
+            <% end %>
+
             <p class="resourceDescription">
               <%= resource.description %>
             </p>
@@ -277,6 +489,33 @@
                 <%= resource.name %>
               </h3>
             </a>
+
+            <% if current_user %>
+              <!-- Allow the current user to vote or unvote -->
+              <% if (current_user.liked? resource) %>
+                <!-- Unlike -->
+                <%= link_to unlike_resource_path(resource), method: :put do %>
+                  <button class="ui basic compact icon right floated button">
+                    <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
+                  </button> 
+                <% end %>
+              <% else %>
+                <!-- Like -->
+                <%= link_to like_resource_path(resource), method: :put do %>
+                  <button class="ui basic compact icon right floated button">
+                    <i class="heart icon" style="color: #F1F1F1"></i> <%= resource.get_likes.size %>
+                  </button> 
+                <% end %>
+              <% end %>
+            <% else %>
+              <!-- Force the stranger to sign in before voting -->
+              <%= link_to "/auth/twitter" do %>
+                <button class="ui basic compact icon right floated button">
+                  <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
+                </button> 
+              <% end %>
+            <% end %>
+
             <p class="resourceDescription">
               <%= resource.description %>
             </p>
@@ -286,4 +525,12 @@
 
     </div>
   </div>
+
+  <footer>
+    <p>
+      <strong>
+        Built by <a href="http://www.greig.io/" class="credit"><%= image_tag("ghost.png", :alt => "Robinson Greig") %></a>
+      </strong>
+    </p>
+  </footer>
 </div>

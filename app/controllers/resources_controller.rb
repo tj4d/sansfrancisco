@@ -4,7 +4,19 @@ class ResourcesController < ApplicationController
   # GET /resources
   # GET /resources.json
   def index
-    @resources = Resource.all
+    @resources = Resource.all.order(:cached_votes_up => :desc)
+  end
+
+  def like
+    @resource = Resource.find(params[:id])
+    @resource.liked_by current_user
+    redirect_to :back
+  end
+
+  def unlike
+    @resource = Resource.find(params[:id])
+    @resource.unliked_by current_user
+    redirect_to :back
   end
 
   # GET /resources/1

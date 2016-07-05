@@ -29,7 +29,7 @@ $largedesktop-size:em(1050);
 $mobile: new-breakpoint(min-width $mobile-size 4);
 $desktop: new-breakpoint(min-width $desktop-size 12);
 
-.header, .announcement, .mainContent {
+.header, .announcement, .mainContent, footer {
     @include span-columns(10);
 	@include shift(1);
 }
@@ -399,7 +399,7 @@ li{
 	}
 }
 
-footer img{
-	margin-top: 10em;
-	width: 100%;
+footer{
+	text-align: center;
+	margin-bottom: 100px;
 }
