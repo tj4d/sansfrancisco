@@ -144,6 +144,11 @@ a:hover{
 	color: #222;
 }
 
+.ui.icon.buttons .button, .ui.icon.button{
+	font-family: "brandon-grotesque", sans serif;
+	margin-top: -25px;
+}
+
 .header{
 	h3{
 		font-weight: 900;
@@ -165,6 +170,7 @@ a:hover{
 
 .mainContent{
 	margin-top: 100px;
+	padding-bottom: 100px;
 	.sideNav{
 		margin-right: 2.79%;
 	}
