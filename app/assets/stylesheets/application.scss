@@ -271,6 +271,24 @@ a:hover{
 	}
 }
 
+.navItem:nth-last-child(2){
+	.navMarker{
+		background: #F1F1F1;
+	}
+	.navMarker > i{
+		border-left: 10px solid #F1F1F1;
+		border-top: 10px solid #F1F1F1;
+	}
+	margin-top: 60px
+}
+
+.credit{
+	text-decoration: underline;
+	img{
+		height: 18px;
+	}
+}
+
 .navMarker {
   display: inline-block;
   height: 20px;
