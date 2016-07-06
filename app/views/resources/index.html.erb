@@ -24,7 +24,7 @@
         <strong style="text-decoration: line-through">Learn</strong> (Coming Soon)
       </p>
       <p class="active">
-        <strong>Resources</strong>
+        <strong>Tools</strong>
       </p>
     </div>
   </div>
@@ -64,11 +64,11 @@
         </div>
         <div class="navItem">
           <div class="navMarker"><i></i></div>
-          <li><a href="#prototyping">Prototyping</a></li>
+          <li><a href="#assembly">Assembly</a></li>
         </div>
         <div class="navItem">
           <div class="navMarker"><i></i></div>
-          <li><a href="#vector-tools">Vector Tools</a></li>
+          <li><a href="#prototyping">Prototyping</a></li>
         </div>
         <div class="navItem">
           <div class="navMarker"><i></i></div>
@@ -80,7 +80,7 @@
         </div>
         <div class="navItem">
           <div class="navMarker"><i></i></div>
-          <li><%= link_to new_resource_path do %>Add a Resource<% end %></li>
+          <li><%= link_to new_resource_path do %>Add a Tool<% end %></li>
         </div>
         <div class="navItem">
           <div class="navMarker"><i></i></div>
@@ -111,7 +111,7 @@
               <% if (current_user.liked? resource) %>
                 <!-- Unlike -->
                 <%= link_to unlike_resource_path(resource), method: :put do %>
-                  <button class="ui basic compact icon right floated button">
+                  <button class="ui basic compact icon right floated button" >
                     <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
                   </button> 
                 <% end %>
@@ -126,7 +126,7 @@
             <% else %>
               <!-- Force the stranger to sign in before voting -->
               <%= link_to "/auth/twitter" do %>
-                <button class="ui basic compact icon right floated button">
+                <button class="ui basic compact icon right floated button" data-tooltip="Heads up, you'll have to connect Twitter before you do that. Click away, tiger." data-variation="basic" data-position="top right">
                   <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
                 </button> 
               <% end %>
@@ -174,7 +174,7 @@
             <% else %>
               <!-- Force the stranger to sign in before voting -->
               <%= link_to "/auth/twitter" do %>
-                <button class="ui basic compact icon right floated button">
+                <button class="ui basic compact icon right floated button" data-tooltip="Heads up, you'll have to connect Twitter before you do that. Click away, tiger." data-variation="basic" data-position="top right">
                   <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
                 </button> 
               <% end %>
@@ -222,7 +222,7 @@
             <% else %>
               <!-- Force the stranger to sign in before voting -->
               <%= link_to "/auth/twitter" do %>
-                <button class="ui basic compact icon right floated button">
+                <button class="ui basic compact icon right floated button" data-tooltip="Heads up, you'll have to connect Twitter before you do that. Click away, tiger." data-variation="basic" data-position="top right">
                   <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
                 </button> 
               <% end %>
@@ -270,7 +270,7 @@
             <% else %>
               <!-- Force the stranger to sign in before voting -->
               <%= link_to "/auth/twitter" do %>
-                <button class="ui basic compact icon right floated button">
+                <button class="ui basic compact icon right floated button" data-tooltip="Heads up, you'll have to connect Twitter before you do that. Click away, tiger." data-variation="basic" data-position="top right">
                   <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
                 </button> 
               <% end %>
@@ -318,7 +318,55 @@
             <% else %>
               <!-- Force the stranger to sign in before voting -->
               <%= link_to "/auth/twitter" do %>
-                <button class="ui basic compact icon right floated button">
+                <button class="ui basic compact icon right floated button" data-tooltip="Heads up, you'll have to connect Twitter before you do that. Click away, tiger." data-variation="basic" data-position="top right">
+                  <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
+                </button> 
+              <% end %>
+            <% end %>
+
+            <p class="resourceDescription">
+              <%= resource.description %>
+            </p>
+          </div>
+        <% end %>
+      <% end %>
+
+      <!-- ****** Resources Category ****** -->
+      <h2 id="assembly">
+        Assembly
+      </h2>
+      <div class="breakerBar"></div>
+      <% @resources.each do |resource| %>
+        <% if resource.category == "Assembly" %>
+          <div class="resource">
+            <a href="<%= resource.url %>?ref=sansfrancisco" target="_blank">
+              <div class="resourceFavicon" style="background-image: url('https://www.google.com/s2/favicons?domain=<%= resource.url %>');"></div>
+              <h3> 
+                <%= resource.name %>
+              </h3>
+            </a>
+
+            <% if current_user %>
+              <!-- Allow the current user to vote or unvote -->
+              <% if (current_user.liked? resource) %>
+                <!-- Unlike -->
+                <%= link_to unlike_resource_path(resource), method: :put do %>
+                  <button class="ui basic compact icon right floated button">
+                    <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
+                  </button> 
+                <% end %>
+              <% else %>
+                <!-- Like -->
+                <%= link_to like_resource_path(resource), method: :put do %>
+                  <button class="ui basic compact icon right floated button">
+                    <i class="heart icon" style="color: #F1F1F1"></i> <%= resource.get_likes.size %>
+                  </button> 
+                <% end %>
+              <% end %>
+            <% else %>
+              <!-- Force the stranger to sign in before voting -->
+              <%= link_to "/auth/twitter" do %>
+                <button class="ui basic compact icon right floated button" data-tooltip="Heads up, you'll have to connect Twitter before you do that. Click away, tiger." data-variation="basic" data-position="top right">
                   <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
                 </button> 
               <% end %>
@@ -366,55 +414,7 @@
             <% else %>
               <!-- Force the stranger to sign in before voting -->
               <%= link_to "/auth/twitter" do %>
-                <button class="ui basic compact icon right floated button">
-                  <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
-                </button> 
-              <% end %>
-            <% end %>
-
-            <p class="resourceDescription">
-              <%= resource.description %>
-            </p>
-          </div>
-        <% end %>
-      <% end %>
-
-      <!-- ****** Resources Category ****** -->
-      <h2 id="vector-tools">
-        Vector Tools
-      </h2>
-      <div class="breakerBar"></div>
-      <% @resources.each do |resource| %>
-        <% if resource.category == "Vector Tools" %>
-          <div class="resource">
-            <a href="<%= resource.url %>?ref=sansfrancisco" target="_blank">
-              <div class="resourceFavicon" style="background-image: url('https://www.google.com/s2/favicons?domain=<%= resource.url %>');"></div>
-              <h3> 
-                <%= resource.name %>
-              </h3>
-            </a>
-
-            <% if current_user %>
-              <!-- Allow the current user to vote or unvote -->
-              <% if (current_user.liked? resource) %>
-                <!-- Unlike -->
-                <%= link_to unlike_resource_path(resource), method: :put do %>
-                  <button class="ui basic compact icon right floated button">
-                    <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
-                  </button> 
-                <% end %>
-              <% else %>
-                <!-- Like -->
-                <%= link_to like_resource_path(resource), method: :put do %>
-                  <button class="ui basic compact icon right floated button">
-                    <i class="heart icon" style="color: #F1F1F1"></i> <%= resource.get_likes.size %>
-                  </button> 
-                <% end %>
-              <% end %>
-            <% else %>
-              <!-- Force the stranger to sign in before voting -->
-              <%= link_to "/auth/twitter" do %>
-                <button class="ui basic compact icon right floated button">
+                <button class="ui basic compact icon right floated button" data-tooltip="Heads up, you'll have to connect Twitter before you do that. Click away, tiger." data-variation="basic" data-position="top right">
                   <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
                 </button> 
               <% end %>
@@ -462,7 +462,7 @@
             <% else %>
               <!-- Force the stranger to sign in before voting -->
               <%= link_to "/auth/twitter" do %>
-                <button class="ui basic compact icon right floated button">
+                <button class="ui basic compact icon right floated button" data-tooltip="Heads up, you'll have to connect Twitter before you do that. Click away, tiger." data-variation="basic" data-position="top right">
                   <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
                 </button> 
               <% end %>
@@ -510,7 +510,7 @@
             <% else %>
               <!-- Force the stranger to sign in before voting -->
               <%= link_to "/auth/twitter" do %>
-                <button class="ui basic compact icon right floated button">
+                <button class="ui basic compact icon right floated button" data-tooltip="Heads up, you'll have to connect Twitter before you do that. Click away, tiger." data-variation="basic" data-position="top right">
                   <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
                 </button> 
               <% end %>

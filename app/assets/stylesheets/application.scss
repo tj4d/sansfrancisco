@@ -403,3 +403,29 @@ footer{
 	text-align: center;
 	margin-bottom: 100px;
 }
+
+/*
+**
+** New Resource Form
+**
+*/
+
+.form{
+	@include span-columns(6);
+	@include shift(3);
+	margin-top: 20px;
+	margin-bottom: 20px;
+	h2{
+		text-align: center;
+	}
+	input, textarea{
+		width: 100%;
+	}
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+	.form{
+		@include span-columns(4);
+		@include shift(0);
+	}
+}
