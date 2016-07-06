@@ -64,7 +64,7 @@
         </div>
         <div class="navItem">
           <div class="navMarker"><i></i></div>
-          <li><a href="#assembly">Assembly</a></li>
+          <li><a href="#inspiration">Inspiration</a></li>
         </div>
         <div class="navItem">
           <div class="navMarker"><i></i></div>
@@ -76,7 +76,7 @@
         </div>
         <div class="navItem">
           <div class="navMarker"><i></i></div>
-          <li><a href="#community">Community</a></li>
+          <li><a href="#collaboration">Collaboration</a></li>
         </div>
         <div class="navItem">
           <div class="navMarker"><i></i></div>
@@ -332,12 +332,12 @@
       <% end %>
 
       <!-- ****** Resources Category ****** -->
-      <h2 id="assembly">
-        Assembly
+      <h2 id="inspiration">
+        Inspiration
       </h2>
       <div class="breakerBar"></div>
       <% @resources.each do |resource| %>
-        <% if resource.category == "Assembly" %>
+        <% if resource.category == "Inspiration" %>
           <div class="resource">
             <a href="<%= resource.url %>?ref=sansfrancisco" target="_blank">
               <div class="resourceFavicon" style="background-image: url('https://www.google.com/s2/favicons?domain=<%= resource.url %>');"></div>
@@ -476,12 +476,12 @@
       <% end %>
 
       <!-- ****** Resources Category ****** -->
-      <h2 id="community">
-        Community
+      <h2 id="collaboration">
+        Collaboration
       </h2>
       <div class="breakerBar"></div>
       <% @resources.each do |resource| %>
-        <% if resource.category == "Community" %>
+        <% if resource.category == "Collaboration" %>
           <div class="resource">
             <a href="<%= resource.url %>?ref=sansfrancisco" target="_blank">
               <div class="resourceFavicon" style="background-image: url('https://www.google.com/s2/favicons?domain=<%= resource.url %>');"></div>
