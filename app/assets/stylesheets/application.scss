@@ -277,7 +277,7 @@ a:hover{
 	}
 }
 
-.navItem:nth-last-child(2){
+.navItem:nth-last-child(3){
 	.navMarker{
 		background: #F1F1F1;
 	}
@@ -296,9 +296,7 @@ a:hover{
 }
 
 .tweetThis{
-	margin-top: 20px !important;
-	position: absolute;
-	left: 32px;
+	margin: 20px 0 0 32px !important;
 }
 
 .navMarker {
@@ -407,7 +405,7 @@ li{
 
 footer{
 	text-align: center;
-	margin-bottom: 100px;
+	padding-bottom: 100px;
 }
 
 /*
