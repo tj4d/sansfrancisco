@@ -18,20 +18,32 @@
 
 $( document ).ready(function() {
    
-   // scroll to div
-   $('a').click(function(){
+  /* 
+  ========= Animate scroll to div =========
+  */
+   $('.sideNav a').click(function(){
       $('html, body').animate({
           scrollTop: $( $(this).attr('href') ).offset().top - 40
       }, 500);
       return false;
   });
   
-  // sidebar sticky
-  $('.ui.sticky')
-	.sticky({
-	  offset: 50,
-	  context: '#dataTable'
-	});
+  /* 
+  ========= Sticky nav =========
+  */
+  var  mn = $(".sideNav");
+    intro = $(".mainContent");
+    mns = "sideNav-scrolled";
+    fix = "sticky_fix";
+
+  $(window).scroll(function() {
+    if( $(this).scrollTop() > 450 ) {
+      mn.addClass(mns);
+      intro.addClass(fix);
+    } else {
+      mn.removeClass(mns);
+      intro.removeClass(fix);
+    }
+  });
 
 });
-

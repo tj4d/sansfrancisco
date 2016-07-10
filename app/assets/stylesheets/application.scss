@@ -1,16 +1,23 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- */
+* Robinson Greig
+* Copyright 2016
+*/
+
+
+/* Table of Contents
+==================================================
+    #Generic styles
+    #Element spacing
+	#Header
+	#Side navbar
+	#Sticky navbar
+	#Data Table
+	#Footer
+	#Small screens
+	#New resource form
+
+/* #Basic elements
+================================================== */
 
 @import "normalize";
 @import "bourbon";
@@ -20,45 +27,6 @@
 @import "semantic-ui";
 
 @import 'https://fonts.googleapis.com/css?family=Anonymous+Pro:400';
-$mobile-size:em(320);
-$tablet-size:720px;
-$desktop-size:em(960);
-$largedesktop-size:em(1050);
-
-// Bourbon Neat Breakpoints
-$mobile: new-breakpoint(min-width $mobile-size 4);
-$desktop: new-breakpoint(min-width $desktop-size 12);
-
-.header, .announcement, .mainContent, footer {
-    @include span-columns(10);
-	@include shift(1);
-}
-
-.sideNav{
-	@include span-columns(3 of 10);
-}
-
-.dataTable{
-	@include span-columns(7 of 10);
-}
-
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-	.sideNav, .rightNav{
-		display: none;
-	}
-
-	.announcement{
-		margin-top: 70px !important;
-	}
-
-	.ui.fixed.sticky + .dataTable {
-	  @include shift(3);
-	}
-
-	.dataTable{
-		@include span-columns(10 of 10);
-	}
-}
 
 html {
     -webkit-font-smoothing: antialiased;
@@ -69,8 +37,12 @@ body{
 	color: #222;
 }
 
+h1, h2, h3{
+	font-family: "brandon-grotesque", sans serif;
+}
+
 h1 {
-    font-family: "brandon-grotesque", sans serif;
+    
     font-size: 64px;
     font-weight: 900;
     line-height: 1.20;
@@ -83,7 +55,6 @@ h1 {
 }
 
 h2 {
-    font-family: "brandon-grotesque", sans serif;
     font-size: 36px;
     font-weight: 500;
     line-height: 1.20;
@@ -98,7 +69,6 @@ h2 {
 
 
 h3 {
-    font-family: "brandon-grotesque", sans serif;
     font-size: 24px;
     font-weight: 400;
     line-height: 1.20;
@@ -111,7 +81,8 @@ h3 {
 }
 
 p, li {
-    font-family: "Anonymous Pro", monospace;
+	font-family: "Proxima Nova", "Helvetica Neue", "Lato", sans-serif;
+    /*font-family: "Anonymous Pro", monospace;*/
     font-size: 18px;
     font-weight: 400;
     line-height: 1.60;
@@ -144,10 +115,28 @@ a:hover{
 	color: #222;
 }
 
-.ui.icon.buttons .button, .ui.icon.button{
-	font-family: "brandon-grotesque", sans serif;
-	margin-top: -25px;
+/* #Element Spacing
+================================================== */
+
+.header, .announcement, .mainContent, footer {
+    @include span-columns(10);
+	@include shift(1);
 }
+
+.sideNav{
+	@include span-columns(3 of 10);
+}
+
+.dataTable{
+	@include span-columns(7 of 10);
+}
+
+.sideNav-scrolled + .dataTable {
+  @include shift(3);
+}
+
+/* #Header
+================================================== */
 
 .header{
 	h3{
@@ -168,16 +157,15 @@ a:hover{
 	margin-top: 150px;
 }
 
+/* #Side navbar
+================================================== */
+
 .mainContent{
 	margin-top: 100px;
 	padding-bottom: 100px;
 	.sideNav{
 		margin-right: 2.79%;
 	}
-}
-
-.ui.fixed.sticky + .dataTable {
-  @include shift(3);
 }
 
 .navItem{
@@ -332,7 +320,7 @@ a:hover{
 li{
 	margin: -5px 0 20px -15px;
 	float: left;
-	font-weight: 800;
+	font-weight: 600;
 	clear: right;
 }
 
@@ -340,6 +328,18 @@ li{
 	transition-timing-function: ease;
   	transition: 0.25s;
 }
+
+/* #Sticky navbar
+================================================== */
+
+.sideNav-scrolled {
+  position: fixed;
+  margin-top: 40px;
+  top: 0;
+}
+
+/* #Data Table
+================================================== */
 
 .dataTable h2:first-child{
 	margin-top: 0;
@@ -403,16 +403,39 @@ li{
 	}
 }
 
+.ui.icon.buttons .button, .ui.icon.button{
+	font-family: "brandon-grotesque", sans serif;
+	margin-top: -25px;
+}
+
+/* #Footer
+================================================== */
+
 footer{
 	text-align: center;
 	padding-bottom: 100px;
 }
 
-/*
-**
-** New Resource Form
-**
-*/
+/* #Small screens
+================================================== */
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+	.sideNav, .rightNav{
+		display: none;
+	}
+
+	.announcement{
+		margin-top: 70px !important;
+	}
+
+	.dataTable{
+		@include span-columns(10 of 10);
+		margin-left: 0 !important;
+	}
+}
+
+/* #New resource form
+================================================== */
 
 .form{
 	@include span-columns(6);
@@ -433,3 +456,4 @@ footer{
 		@include shift(0);
 	}
 }
+

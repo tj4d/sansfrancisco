@@ -24,7 +24,7 @@
         <strong style="text-decoration: line-through">Learn</strong> (Coming Soon)
       </p>
       <p class="active">
-        <strong>Tools</strong>
+        <strong>Toolkit</strong>
       </p>
     </div>
   </div>
@@ -40,7 +40,7 @@
   <div class="mainContent">
 
     <!-- ****** Side Navigation ****** -->
-    <div class="sideNav ui sticky">
+    <div class="sideNav">
       <ul>
         <div class="navItem">
           <div class="navMarker"><i></i></div>
@@ -119,7 +119,7 @@
               <% if (current_user.liked? resource) %>
                 <!-- Unlike -->
                 <%= link_to unlike_resource_path(resource), method: :put do %>
-                  <button class="ui basic compact icon right floated button" >
+                  <button class="ui basic compact icon right floated button">
                     <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
                   </button> 
                 <% end %>
