@@ -1,0 +1,4 @@
+$('.unlike_resource').bind('ajax:success', function(){
+   $(this).closest('.unlike_resource').hide();
+   $(this).closest('.votes').html(' <%= link_to "Like", like_resource_path(@resource), remote: true, method: :get, class: 'like_resource' %>');
+});

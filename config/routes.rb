@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   resources :resources do 
 	  member do
-	    put "like", to: "resources#like"
-	    put "unlike", to: "resources#unlike"
+	    get "like", to: "resources#like"
+	    get "unlike", to: "resources#unlike"
 	  end
 	end
   root 'resources#index'

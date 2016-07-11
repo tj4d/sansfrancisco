@@ -17,6 +17,7 @@ gem 'rails_12factor', group: :production
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 gem 'omniauth-twitter'
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'responders', '~> 2.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

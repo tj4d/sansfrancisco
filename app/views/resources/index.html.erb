@@ -116,21 +116,15 @@
 
             <% if current_user %>
               <!-- Allow the current user to vote or unvote -->
-              <% if (current_user.liked? resource) %>
-                <!-- Unlike -->
-                <%= link_to unlike_resource_path(resource), method: :put do %>
-                  <button class="ui basic compact icon right floated button">
-                    <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
-                  </button> 
+              <div class="votes">
+                <% if (current_user.liked? resource) %>
+                  <!-- Unlike -->
+                  <%= render(:partial => 'unlike', :locals => {:resource => resource})%>
+                <% else %>
+                  <!-- Like -->
+                  <%= render(:partial => 'like', :locals => {:resource => resource})%>
                 <% end %>
-              <% else %>
-                <!-- Like -->
-                <%= link_to like_resource_path(resource), method: :put do %>
-                  <button class="ui basic compact icon right floated button">
-                    <i class="heart icon" style="color: #F1F1F1"></i> <%= resource.get_likes.size %>
-                  </button> 
-                <% end %>
-              <% end %>
+              </div>
             <% else %>
               <!-- Force the stranger to sign in before voting -->
               <%= link_to "/auth/twitter" do %>

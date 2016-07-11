@@ -1,5 +1,7 @@
+
 class ResourcesController < ApplicationController
   before_action :set_resource, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :js
 
   # GET /resources
   # GET /resources.json
@@ -10,13 +12,19 @@ class ResourcesController < ApplicationController
   def like
     @resource = Resource.find(params[:id])
     @resource.liked_by current_user
-    redirect_to :back
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js { render layout: false }
+    end
   end
 
   def unlike
     @resource = Resource.find(params[:id])
     @resource.unliked_by current_user
-    redirect_to :back
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js { render layout: false }
+    end
   end
 
   # GET /resources/1
