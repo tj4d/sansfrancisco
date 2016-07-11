@@ -13,8 +13,8 @@ class ResourcesController < ApplicationController
     @resource = Resource.find(params[:id])
     @resource.liked_by current_user
     respond_to do |format|
-      format.html { redirect_to :back }
-      format.js { render layout: false }
+      format.html
+      format.js
     end
   end
 
@@ -22,8 +22,8 @@ class ResourcesController < ApplicationController
     @resource = Resource.find(params[:id])
     @resource.unliked_by current_user
     respond_to do |format|
-      format.html { redirect_to :back }
-      format.js { render layout: false }
+      format.html
+      format.js
     end
   end
 
