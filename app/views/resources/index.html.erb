@@ -1,6 +1,9 @@
 <div class="container">
 
-  <!-- ****** Header ****** -->
+  <!-- Header
+  ================================================== -->
+
+  <!-- ****** Primary Navigation ****** -->
   <div class="header">
     <h3>
       Sans<br>
@@ -29,6 +32,7 @@
     </div>
   </div>
 
+
   <!-- ****** Large Announcement ****** -->
   <div class="announcement">
     <h1>
@@ -36,48 +40,24 @@
     </h1>
   </div>
         
-  <!-- ****** Main Content ****** -->
+  <!-- Main Content
+  ================================================== -->
   <div class="mainContent">
 
-    <!-- ****** Side Navigation ****** -->
+    <!-- Side Navigation 
+    ************************************************** -->
     <div class="sideNav">
       <ul>
-        <div class="navItem">
-          <div class="navMarker"><i></i></div>
-          <li><a href="#user-research">User Research</a></li>
-        </div>
-        <div class="navItem">
-          <div class="navMarker"><i></i></div>
-          <li><a href="#typography">Typography</a></li>
-        </div>
-        <div class="navItem">
-          <div class="navMarker"><i></i></div>
-          <li><a href="#color-palette">Color Palette</a></li>
-        </div>
-        <div class="navItem">
-          <div class="navMarker"><i></i></div>
-          <li><a href="#iconography">Iconography</a></li>
-        </div>
-        <div class="navItem">
-          <div class="navMarker"><i></i></div>
-          <li><a href="#stock-photos">Stock Photos</a></li>
-        </div>
-        <div class="navItem">
-          <div class="navMarker"><i></i></div>
-          <li><a href="#inspiration">Inspiration</a></li>
-        </div>
-        <div class="navItem">
-          <div class="navMarker"><i></i></div>
-          <li><a href="#prototyping">Prototyping</a></li>
-        </div>
-        <div class="navItem">
-          <div class="navMarker"><i></i></div>
-          <li><a href="#presentation">Presentation</a></li>
-        </div>
-        <div class="navItem">
-          <div class="navMarker"><i></i></div>
-          <li><a href="#collaboration">Collaboration</a></li>
-        </div>
+
+        <!-- Category Nav List -->
+        <% @categories.each do |category, category_id| %>
+          <div class="navItem">
+            <div class="navMarker"><i></i></div>
+            <li><a href="#<%= category_id %>"><%= category %></a></li>
+          </div>
+        <% end %>
+        
+        <!-- Nav Footer -->
         <div class="navItem">
           <div class="navMarker"><i></i></div>
           <li><%= link_to new_resource_path do %>Add a Tool<% end %></li>
@@ -97,389 +77,64 @@
       </ul>
     </div>
 
-    <!-- ****** Resources List ****** -->
+    <!-- Resource List 
+    ************************************************** -->
     <div class="dataTable" id="dataTable">
-      <!-- ****** Resources Category ****** -->
-      <h2 id="user-research">
-        User Research
-      </h2>
-      <div class="breakerBar"></div>
-      <% @resources.each do |resource| %>
-        <% if resource.category == "User Research" %>
-          <div class="resource">
-            <a href="<%= resource.url %>?ref=sansfrancisco" target="_blank">
-              <div class="resourceFavicon" style="background-image: url('https://www.google.com/s2/favicons?domain=<%= resource.url %>');"></div>
-              <h3> 
-                <%= resource.name %>
-              </h3>
-            </a>
 
-            <% if current_user %>
-              <!-- Allow the current user to vote or unvote -->
-              <div class="votes">
-                <% if (current_user.liked? resource) %>
-                  <!-- Unlike -->
-                  <%= render(:partial => 'unlike', :locals => {:resource => resource})%>
-                <% else %>
-                  <!-- Like -->
-                  <%= render(:partial => 'like', :locals => {:resource => resource})%>
+      <% @categories.each do |category, category_id| %>
+
+        <!-- Category Title -->
+        <h2 id="<%= category_id %>">
+          <%= category %>
+        </h2>
+        <div class="breakerBar"></div>
+
+        <!-- Category Details -->
+        <% @resources.each do |resource| %>
+          <% if resource.category == category %>
+            <div class="resource">
+              <a href="<%= resource.url %>?ref=sansfrancisco" target="_blank">
+                <div class="resourceFavicon" style="background-image: url('https://www.google.com/s2/favicons?domain=<%= resource.url %>');"></div>
+                <h3> 
+                  <%= resource.name %>
+                </h3>
+              </a>
+
+              <!-- Like/Unlike Button -->
+              <% if current_user %>
+                <!-- If the user is signed in, allow them to vote -->
+                <div class="votes">
+                  <% if (current_user.liked? resource) %>
+                    <!-- Unlike -->
+                    <%= render(:partial => 'unlike', :locals => {:resource => resource})%>
+                  <% else %>
+                    <!-- Like -->
+                    <%= render(:partial => 'like', :locals => {:resource => resource})%>
+                  <% end %>
+                </div>
+              <% else %>
+                <!-- If the user is not signed in, send them to Twitter -->
+                <%= link_to "/auth/twitter" do %>
+                  <button class="ui basic compact icon right floated button" data-tooltip="Heads up, you'll have to connect Twitter before you do that. Click away, tiger." data-variation="basic" data-position="top right">
+                    <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
+                  </button> 
                 <% end %>
-              </div>
-            <% else %>
-              <!-- Force the stranger to sign in before voting -->
-              <%= link_to "/auth/twitter" do %>
-                <button class="ui basic compact icon right floated button" data-tooltip="Heads up, you'll have to connect Twitter before you do that. Click away, tiger." data-variation="basic" data-position="top right">
-                  <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
-                </button> 
               <% end %>
-            <% end %>
 
-            <p class="resourceDescription">
-              <%= resource.description %>
-            </p>
-          </div>
+              <p class="resourceDescription">
+                <%= resource.description %>
+              </p>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
 
-      <!-- ****** Resources Category ****** -->
-      <h2 id="typography">
-        Typography
-      </h2>
-      <div class="breakerBar"></div>
-      <% @resources.each do |resource| %>
-        <% if resource.category == "Typography" %>
-          <div class="resource">
-            <a href="<%= resource.url %>?ref=sansfrancisco" target="_blank">
-              <div class="resourceFavicon" style="background-image: url('https://www.google.com/s2/favicons?domain=<%= resource.url %>');"></div>
-              <h3> 
-                <%= resource.name %>
-              </h3>
-            </a>
-
-            <% if current_user %>
-              <!-- Allow the current user to vote or unvote -->
-              <div class="votes">
-                <% if (current_user.liked? resource) %>
-                  <!-- Unlike -->
-                  <%= render(:partial => 'unlike', :locals => {:resource => resource})%>
-                <% else %>
-                  <!-- Like -->
-                  <%= render(:partial => 'like', :locals => {:resource => resource})%>
-                <% end %>
-              </div>
-            <% else %>
-              <!-- Force the stranger to sign in before voting -->
-              <%= link_to "/auth/twitter" do %>
-                <button class="ui basic compact icon right floated button" data-tooltip="Heads up, you'll have to connect Twitter before you do that. Click away, tiger." data-variation="basic" data-position="top right">
-                  <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
-                </button> 
-              <% end %>
-            <% end %>
-
-            <p class="resourceDescription">
-              <%= resource.description %>
-            </p>
-          </div>
-        <% end %>
-      <% end %>
-
-      <!-- ****** Resources Category ****** -->
-      <h2 id="color-palette">
-        Color Palette
-      </h2>
-      <div class="breakerBar"></div>
-      <% @resources.each do |resource| %>
-        <% if resource.category == "Color Palette" %>
-          <div class="resource">
-            <a href="<%= resource.url %>?ref=sansfrancisco" target="_blank">
-              <div class="resourceFavicon" style="background-image: url('https://www.google.com/s2/favicons?domain=<%= resource.url %>');"></div>
-              <h3> 
-                <%= resource.name %>
-              </h3>
-            </a>
-
-            <% if current_user %>
-              <!-- Allow the current user to vote or unvote -->
-              <div class="votes">
-                <% if (current_user.liked? resource) %>
-                  <!-- Unlike -->
-                  <%= render(:partial => 'unlike', :locals => {:resource => resource})%>
-                <% else %>
-                  <!-- Like -->
-                  <%= render(:partial => 'like', :locals => {:resource => resource})%>
-                <% end %>
-              </div>
-            <% else %>
-              <!-- Force the stranger to sign in before voting -->
-              <%= link_to "/auth/twitter" do %>
-                <button class="ui basic compact icon right floated button" data-tooltip="Heads up, you'll have to connect Twitter before you do that. Click away, tiger." data-variation="basic" data-position="top right">
-                  <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
-                </button> 
-              <% end %>
-            <% end %>
-
-            <p class="resourceDescription">
-              <%= resource.description %>
-            </p>
-          </div>
-        <% end %>
-      <% end %>
-
-      <!-- ****** Resources Category ****** -->
-      <h2 id="iconography">
-        Iconography
-      </h2>
-      <div class="breakerBar"></div>
-      <% @resources.each do |resource| %>
-        <% if resource.category == "Iconography" %>
-          <div class="resource">
-            <a href="<%= resource.url %>?ref=sansfrancisco" target="_blank">
-              <div class="resourceFavicon" style="background-image: url('https://www.google.com/s2/favicons?domain=<%= resource.url %>');"></div>
-              <h3> 
-                <%= resource.name %>
-              </h3>
-            </a>
-
-            <% if current_user %>
-              <!-- Allow the current user to vote or unvote -->
-              <div class="votes">
-                <% if (current_user.liked? resource) %>
-                  <!-- Unlike -->
-                  <%= render(:partial => 'unlike', :locals => {:resource => resource})%>
-                <% else %>
-                  <!-- Like -->
-                  <%= render(:partial => 'like', :locals => {:resource => resource})%>
-                <% end %>
-              </div>
-            <% else %>
-              <!-- Force the stranger to sign in before voting -->
-              <%= link_to "/auth/twitter" do %>
-                <button class="ui basic compact icon right floated button" data-tooltip="Heads up, you'll have to connect Twitter before you do that. Click away, tiger." data-variation="basic" data-position="top right">
-                  <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
-                </button> 
-              <% end %>
-            <% end %>
-
-            <p class="resourceDescription">
-              <%= resource.description %>
-            </p>
-          </div>
-        <% end %>
-      <% end %>
-
-      <!-- ****** Resources Category ****** -->
-      <h2 id="stock-photos">
-        Stock Photos
-      </h2>
-      <div class="breakerBar"></div>
-      <% @resources.each do |resource| %>
-        <% if resource.category == "Stock Photos" %>
-          <div class="resource">
-            <a href="<%= resource.url %>?ref=sansfrancisco" target="_blank">
-              <div class="resourceFavicon" style="background-image: url('https://www.google.com/s2/favicons?domain=<%= resource.url %>');"></div>
-              <h3> 
-                <%= resource.name %>
-              </h3>
-            </a>
-
-            <% if current_user %>
-              <!-- Allow the current user to vote or unvote -->
-              <div class="votes">
-                <% if (current_user.liked? resource) %>
-                  <!-- Unlike -->
-                  <%= render(:partial => 'unlike', :locals => {:resource => resource})%>
-                <% else %>
-                  <!-- Like -->
-                  <%= render(:partial => 'like', :locals => {:resource => resource})%>
-                <% end %>
-              </div>
-            <% else %>
-              <!-- Force the stranger to sign in before voting -->
-              <%= link_to "/auth/twitter" do %>
-                <button class="ui basic compact icon right floated button" data-tooltip="Heads up, you'll have to connect Twitter before you do that. Click away, tiger." data-variation="basic" data-position="top right">
-                  <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
-                </button> 
-              <% end %>
-            <% end %>
-
-            <p class="resourceDescription">
-              <%= resource.description %>
-            </p>
-          </div>
-        <% end %>
-      <% end %>
-
-      <!-- ****** Resources Category ****** -->
-      <h2 id="inspiration">
-        Inspiration
-      </h2>
-      <div class="breakerBar"></div>
-      <% @resources.each do |resource| %>
-        <% if resource.category == "Inspiration" %>
-          <div class="resource">
-            <a href="<%= resource.url %>?ref=sansfrancisco" target="_blank">
-              <div class="resourceFavicon" style="background-image: url('https://www.google.com/s2/favicons?domain=<%= resource.url %>');"></div>
-              <h3> 
-                <%= resource.name %>
-              </h3>
-            </a>
-
-            <% if current_user %>
-              <!-- Allow the current user to vote or unvote -->
-              <div class="votes">
-                <% if (current_user.liked? resource) %>
-                  <!-- Unlike -->
-                  <%= render(:partial => 'unlike', :locals => {:resource => resource})%>
-                <% else %>
-                  <!-- Like -->
-                  <%= render(:partial => 'like', :locals => {:resource => resource})%>
-                <% end %>
-              </div>
-            <% else %>
-              <!-- Force the stranger to sign in before voting -->
-              <%= link_to "/auth/twitter" do %>
-                <button class="ui basic compact icon right floated button" data-tooltip="Heads up, you'll have to connect Twitter before you do that. Click away, tiger." data-variation="basic" data-position="top right">
-                  <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
-                </button> 
-              <% end %>
-            <% end %>
-
-            <p class="resourceDescription">
-              <%= resource.description %>
-            </p>
-          </div>
-        <% end %>
-      <% end %>
-
-      <!-- ****** Resources Category ****** -->
-      <h2 id="prototyping">
-        Prototyping
-      </h2>
-      <div class="breakerBar"></div>
-      <% @resources.each do |resource| %>
-        <% if resource.category == "Prototyping" %>
-          <div class="resource">
-            <a href="<%= resource.url %>?ref=sansfrancisco" target="_blank">
-              <div class="resourceFavicon" style="background-image: url('https://www.google.com/s2/favicons?domain=<%= resource.url %>');"></div>
-              <h3> 
-                <%= resource.name %>
-              </h3>
-            </a>
-
-            <% if current_user %>
-              <!-- Allow the current user to vote or unvote -->
-              <div class="votes">
-                <% if (current_user.liked? resource) %>
-                  <!-- Unlike -->
-                  <%= render(:partial => 'unlike', :locals => {:resource => resource})%>
-                <% else %>
-                  <!-- Like -->
-                  <%= render(:partial => 'like', :locals => {:resource => resource})%>
-                <% end %>
-              </div>
-            <% else %>
-              <!-- Force the stranger to sign in before voting -->
-              <%= link_to "/auth/twitter" do %>
-                <button class="ui basic compact icon right floated button" data-tooltip="Heads up, you'll have to connect Twitter before you do that. Click away, tiger." data-variation="basic" data-position="top right">
-                  <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
-                </button> 
-              <% end %>
-            <% end %>
-
-            <p class="resourceDescription">
-              <%= resource.description %>
-            </p>
-          </div>
-        <% end %>
-      <% end %>
-
-      <!-- ****** Resources Category ****** -->
-      <h2 id="presentation">
-        Presentation
-      </h2>
-      <div class="breakerBar"></div>
-      <% @resources.each do |resource| %>
-        <% if resource.category == "Presentation" %>
-          <div class="resource">
-            <a href="<%= resource.url %>?ref=sansfrancisco" target="_blank">
-              <div class="resourceFavicon" style="background-image: url('https://www.google.com/s2/favicons?domain=<%= resource.url %>');"></div>
-              <h3> 
-                <%= resource.name %>
-              </h3>
-            </a>
-
-            <% if current_user %>
-              <!-- Allow the current user to vote or unvote -->
-              <div class="votes">
-                <% if (current_user.liked? resource) %>
-                  <!-- Unlike -->
-                  <%= render(:partial => 'unlike', :locals => {:resource => resource})%>
-                <% else %>
-                  <!-- Like -->
-                  <%= render(:partial => 'like', :locals => {:resource => resource})%>
-                <% end %>
-              </div>
-            <% else %>
-              <!-- Force the stranger to sign in before voting -->
-              <%= link_to "/auth/twitter" do %>
-                <button class="ui basic compact icon right floated button" data-tooltip="Heads up, you'll have to connect Twitter before you do that. Click away, tiger." data-variation="basic" data-position="top right">
-                  <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
-                </button> 
-              <% end %>
-            <% end %>
-
-            <p class="resourceDescription">
-              <%= resource.description %>
-            </p>
-          </div>
-        <% end %>
-      <% end %>
-
-      <!-- ****** Resources Category ****** -->
-      <h2 id="collaboration">
-        Collaboration
-      </h2>
-      <div class="breakerBar"></div>
-      <% @resources.each do |resource| %>
-        <% if resource.category == "Collaboration" %>
-          <div class="resource">
-            <a href="<%= resource.url %>?ref=sansfrancisco" target="_blank">
-              <div class="resourceFavicon" style="background-image: url('https://www.google.com/s2/favicons?domain=<%= resource.url %>');"></div>
-              <h3> 
-                <%= resource.name %>
-              </h3>
-            </a>
-
-            <% if current_user %>
-              <!-- Allow the current user to vote or unvote -->
-              <div class="votes">
-                <% if (current_user.liked? resource) %>
-                  <!-- Unlike -->
-                  <%= render(:partial => 'unlike', :locals => {:resource => resource})%>
-                <% else %>
-                  <!-- Like -->
-                  <%= render(:partial => 'like', :locals => {:resource => resource})%>
-                <% end %>
-              </div>
-            <% else %>
-              <!-- Force the stranger to sign in before voting -->
-              <%= link_to "/auth/twitter" do %>
-                <button class="ui basic compact icon right floated button" data-tooltip="Heads up, you'll have to connect Twitter before you do that. Click away, tiger." data-variation="basic" data-position="top right">
-                  <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
-                </button> 
-              <% end %>
-            <% end %>
-
-            <p class="resourceDescription">
-              <%= resource.description %>
-            </p>
-          </div>
-        <% end %>
-      <% end %>
 
     </div>
   </div>
 
+  <!-- Footer
+  ================================================== -->
   <footer>
     <p>
       <strong>
