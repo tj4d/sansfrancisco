@@ -7,6 +7,17 @@ class ResourcesController < ApplicationController
   # GET /resources.json
   def index
     @resources = Resource.all.order(:cached_votes_up => :desc)
+    @category_array = {
+      "User Research"=>["user-research"],
+      "Typography"=>["typography"],
+      "Color Palette"=>["color-palette"],
+      "Iconography"=>["iconography"],
+      "Stock Photos"=>["stock-photos"],
+      "Inspiration"=>["inspiration"],
+      "Prototyping"=>["prototyping"],
+      "Presentation"=>["presentation"],
+      "Collaboration"=>["collaboration"],
+      }
   end
 
   def like
