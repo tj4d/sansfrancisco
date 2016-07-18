@@ -1,4 +1,3 @@
-
 class ResourcesController < ApplicationController
   before_action :set_resource, only: [:show, :edit, :update, :destroy]
   respond_to :html, :js
