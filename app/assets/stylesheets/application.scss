@@ -81,7 +81,7 @@ h3 {
 }
 
 p, li {
-	font-family: "Proxima Nova", "Helvetica Neue", "Lato", sans-serif;
+	font-family: "Freight Sans Pro", sans-serif;
     /*font-family: "Anonymous Pro", monospace;*/
     font-size: 18px;
     font-weight: 400;
@@ -139,17 +139,17 @@ a:hover{
 ================================================== */
 
 .header{
-	h3{
+	.logo{
 		font-weight: 900;
 		float: left;
 		margin-top: 20px;
+		-webkit-text-stroke: 0.5px #95a5a6;
+		color: white;
+		font-size: 30px;
 	}
 	p{
 		float: right;
-		margin: 38px 0 0 50px !important;
-	}
-	.active{
-		border-bottom: 5px solid #EDB0B1;
+		margin: 29px 0 0 50px !important;
 	}
 }
 
@@ -323,7 +323,6 @@ a:hover{
 li{
 	margin: -5px 0 20px -15px;
 	float: left;
-	font-weight: 600;
 	clear: right;
 }
 
