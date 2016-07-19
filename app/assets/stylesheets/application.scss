@@ -27,6 +27,7 @@
 @import "semantic-ui";
 
 @import 'https://fonts.googleapis.com/css?family=Anonymous+Pro:400';
+$black: #0A2126;
 
 html {
     -webkit-font-smoothing: antialiased;
@@ -34,7 +35,7 @@ html {
 }
 
 body{
-	color: #222;
+	color: $black;
 }
 
 h1, h2, h3{
@@ -104,15 +105,15 @@ ul{
 }
 
 a{
-	color: #222;
+	color: $black;
 	text-decoration: none;
 }
 a:visited{
-	color: #222;
+	color: $black;
 }
 a:hover{
 	background-color: transparent;
-	color: #222;
+	color: $black;
 }
 
 /* #Element Spacing
@@ -336,7 +337,7 @@ li{
 
 .sideNav-scrolled {
   position: fixed;
-  margin-top: 40px;
+  margin-top: 38px;
   top: 0;
 }
 

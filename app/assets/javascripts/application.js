@@ -37,7 +37,7 @@ $( document ).ready(function() {
     fix = "sticky_fix";
 
   $(window).scroll(function() {
-    if( $(this).scrollTop() > 450 ) {
+    if( $(this).scrollTop() > 435 ) {
       mn.addClass(mns);
       intro.addClass(fix);
     } else {
