@@ -7,13 +7,14 @@ class PublicationsController < ApplicationController
   def index
     @publications = Publication.all.order(:cached_votes_up => :desc)
     @categories = {
-      "Design Thinking"=>"design-thinking",
+      "Design Organizations"=>"design-organizations"
+      "Graphic Design"=>"graphic-design",
       "Industrial Design"=>"industrial-design",
       "Inspiration"=>"inspiration",
       "Interaction Design"=>"interaction-design",
       "Process"=>"process",
+      "Thinking"=>"thinking",
       "User Research"=>"user-research",
-      "Visual Design"=>"visual-design"
     }
   end
 
