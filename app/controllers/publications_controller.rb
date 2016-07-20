@@ -9,6 +9,7 @@ class PublicationsController < ApplicationController
     @categories = {
       "Design Thinking"=>"design-thinking",
       "Industrial Design"=>"industrial-design",
+      "Inspiration"=>"inspiration"
       "Interaction Design"=>"interaction-design",
       "Process"=>"process",
       "User Research"=>"user-research",
