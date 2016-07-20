@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :publications
   resources :resources do 
 	  member do
 	    get "like", to: "resources#like"

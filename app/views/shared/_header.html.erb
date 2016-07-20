@@ -1,0 +1,23 @@
+<!-- ****** Primary Navigation ****** -->
+<div class="header">
+  <h3 class="logo">
+    Sans Francisco
+  </h3>
+
+  <div class="topNav">
+    <% if current_user %>
+      <p>
+        <%= link_to "Sign Out", signout_path %>
+      </p>
+    <% else %>
+      <p>
+        <%= link_to "Sign in with Twitter", "/auth/twitter" %>
+      </p>
+    <% end %>
+    <p class="topNavItem">
+      <span style="text-decoration: line-through">Jobs</span>  (Coming Soon)
+    </p>
+    <%= nav_link "Library", publications_path %>
+    <%= nav_link "Toolkit", root_path %>
+  </div>
+</div>

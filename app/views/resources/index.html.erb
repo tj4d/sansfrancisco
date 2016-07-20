@@ -3,39 +3,12 @@
   <!-- Header
   ================================================== -->
 
-  <!-- ****** Primary Navigation ****** -->
-  <div class="header">
-    <h3 class="logo">
-      Sans Francisco
-    </h3>
-
-    <div class="rightNav">
-      <% if current_user %>
-        <p>
-          <strong><%= link_to "Sign Out", signout_path %></strong>
-        </p>
-      <% else %>
-        <p>
-          <strong><%= link_to "Sign in with Twitter", "/auth/twitter" %></strong>
-        </p>
-      <% end %>
-      <p>
-        <strong style="text-decoration: line-through">Jobs</strong> (Coming Soon)
-      </p>
-      <p>
-        <strong style="text-decoration: line-through">Library</strong> (Coming Soon)
-      </p>
-      <p class="active-nav">
-        <strong>Toolkit</strong>
-      </p>
-    </div>
-  </div>
-
+  <%= render(:partial => 'shared/header')%>
 
   <!-- ****** Large Announcement ****** -->
   <div class="announcement">
     <h1>
-      A collection of digital resources for digital designers.
+      A collection of tools to help designers craft delightful experiences.
     </h1>
   </div>
         
@@ -136,9 +109,13 @@
   ================================================== -->
   <footer>
     <p>
-      <strong>
-        Built by <a href="https://twitter.com/robinsongreig" target="_blank" class="credit"><%= image_tag("ghost.png", :alt => "Robinson Greig") %></a>
-      </strong>
+      Built by <a href="https://twitter.com/robinsongreig" target="_blank" class="credit"><%= image_tag("ghost.png", :alt => "Robinson Greig") %></a>
     </p>
   </footer>
 </div>
+
+<script>
+  scrollToDiv();
+  stickyNav();
+  themeColor();
+</script>
