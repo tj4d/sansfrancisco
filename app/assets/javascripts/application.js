@@ -38,7 +38,7 @@ var  mn = $(".sideNav");
   fix = "sticky_fix";
 
 $(window).scroll(function() {
-  if( $(this).scrollTop() > 435 ) {
+  if( $(this).scrollTop() > 429 ) {
     mn.addClass(mns);
     intro.addClass(fix);
   } else {
