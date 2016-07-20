@@ -1,0 +1,4 @@
+$('.like_publication').bind('ajax:success', function(){
+   $(this).closest('.like_publication').hide(); 
+   $(this).closest('.votes').html('<%= escape_javascript (render partial: 'unlike', locals: { :publication => @publication } ) %>');
+});

@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :publications
+  resources :publications do 
+	  member do
+	    get "like", to: "publications#like"
+	    get "unlike", to: "publications#unlike"
+	  end
+	end
   resources :resources do 
 	  member do
 	    get "like", to: "resources#like"

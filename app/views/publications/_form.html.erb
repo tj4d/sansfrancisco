@@ -1,41 +1,43 @@
-<%= form_for(@publication) do |f| %>
-  <% if @publication.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@publication.errors.count, "error") %> prohibited this publication from being saved:</h2>
+<div class="ui form">
+  <%= form_for(@publication) do |f| %>
+    <% if @publication.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@publication.errors.count, "error") %> prohibited this publication from being saved:</h2>
 
-      <ul>
-      <% @publication.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @publication.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :title %><br>
+      <%= f.text_field :title, class: "ui input" %>
+    </div>
+    <div class="field">
+      <%= f.label :author %><br>
+      <%= f.text_field :author, class: "ui input" %>
+    </div>
+    <div class="field">
+      <%= f.label :description %><br>
+      <%= f.text_area :description %>
+    </div>
+    <div class="field">
+      <%= f.label :category %><br>
+      <%= f.select(:category, ['Design Thinking', 'Industrial Design', 'Interaction Design', 'Process', 'User Research', 'Visual Design'], {}, { :class => 'ui fluid dropdown' }) %>
+    </div>
+    <div class="field">
+      <%= f.label :medium %><br>
+      <%= f.select(:medium, ['book', 'article', 'podcast', 'video', 'class'], {}, { :class => 'ui fluid dropdown' }) %>
+    </div>
+    <div class="field">
+      <%= f.label :url %><br>
+      <%= f.text_field :url, class: "ui input" %>
+    </div>
+    <div class="actions">
+      <%= f.submit 'Go!', class: "ui fluid pink button" %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :author %><br>
-    <%= f.text_field :author %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :category %><br>
-    <%= f.text_field :category %>
-  </div>
-  <div class="field">
-    <%= f.label :medium %><br>
-    <%= f.text_field :medium %>
-  </div>
-  <div class="field">
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

@@ -136,8 +136,9 @@ a:hover{
 }
 
 .sideNav-scrolled + .dataTable {
-  @include shift(3);
+  	@include shift(3);
 }
+
 
 /* #Header
 ================================================== */
@@ -281,7 +282,17 @@ a:hover{
 		border-left: 10px solid #F1F1F1;
 		border-top: 10px solid #F1F1F1;
 	}
-	margin-top: 60px
+	margin-top: 60px;
+}
+
+.navItem:nth-last-child(2){
+	.navMarker{
+		background: none;
+	}
+	.navMarker > i{
+		border-left: none;
+		border-top: none;
+	}
 }
 
 .credit{
@@ -352,6 +363,10 @@ li{
 	margin-top: 0;
 }
 
+.dataTable h2{
+	clear: both;
+}
+
 .breakerBar{
 	height: 10px;
 	width: 50px;
@@ -397,6 +412,9 @@ li{
 
 .resource{
 	position: relative;
+	h3, .resourceDescription{
+		margin-left: 31px;
+	}
 	.resourceFavicon{
 		position: absolute;
 		left: 0;
@@ -405,14 +423,22 @@ li{
 		height: 24px;
 		background: left bottom no-repeat;
 	}
-	h3, .resourceDescription{
-		margin-left: 31px;
+}
+
+.publication{
+
+	h3{
+		margin-top: 30px;
+	}
+	p{
+		margin-top: 15px;
 	}
 }
 
 .ui.icon.buttons .button, .ui.icon.button{
-	font-family: "brandon-grotesque", sans serif;
-	margin-top: -25px;
+	font-family: "Source Sans Pro", sans serif;
+	font-weight: 800;
+	margin-top: -23px;
 }
 
 /* #Footer

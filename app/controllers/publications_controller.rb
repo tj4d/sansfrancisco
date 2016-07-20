@@ -1,10 +1,37 @@
 class PublicationsController < ApplicationController
   before_action :set_publication, only: [:show, :edit, :update, :destroy]
-
+  respond_to :html, :js
+  
   # GET /publications
   # GET /publications.json
   def index
-    @publications = Publication.all
+    @publications = Publication.all.order(:cached_votes_up => :desc)
+    @categories = {
+      "Design Thinking"=>"design-thinking",
+      "Industrial Design"=>"industrial-design",
+      "Interaction Design"=>"interaction-design",
+      "Process"=>"process",
+      "User Research"=>"user-research",
+      "Visual Design"=>"visual-design"
+    }
+  end
+
+  def like
+    @publication = Publication.find(params[:id])
+    @publication.liked_by current_user
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
+  def unlike
+    @publication = Publication.find(params[:id])
+    @publication.unliked_by current_user
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /publications/1
