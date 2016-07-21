@@ -3,7 +3,7 @@
   <!-- Header
   ================================================== -->
 
-  <%= render(:partial => 'shared/header')%>
+  <%= render(:partial => 'shared/header', locals: { :resource => @resource }) %>
 
   <!-- ****** Large Announcement ****** -->
   <div class="announcement">

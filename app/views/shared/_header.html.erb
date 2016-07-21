@@ -11,7 +11,7 @@
       </p>
     <% else %>
       <p>
-        <%= link_to "Sign in with Twitter", "/auth/twitter" %>
+        <%= link_to "Sign In", "/auth/twitter" %>
       </p>
     <% end %>
     <p class="topNavItem">
@@ -33,8 +33,38 @@
     <p class="cross">
       <%= image_tag("cross.png", :alt => "Close Menu") %>
     </p>
-    <%= nav_link "Library", publications_path %>
-    <%= nav_link "Toolkit", root_path %>
+    <h2>
+      <%= link_to "Toolkit", root_path %>
+    </h2>
+    <% if current_page?(root_path) %>
+      <% @categories.each do |category, category_id| %>
+        <div>
+          <p><a href="#<%= category_id %>"><%= category %></a></p>
+        </div>
+      <% end %>
+    <% end %>
+    <h2>
+      <%= link_to "Library", publications_path %>
+    </h2>
+    <% if current_page?(publications_path) %>
+      <% @categories.each do |category, category_id| %>
+        <div>
+          <p><a href="#<%= category_id %>"><%= category %></a></p>
+        </div>
+      <% end %>
+    <% end %>
+    <h2>
+      Jobs
+    </h2>
+    <% if current_user %>
+      <h2>
+        <%= link_to "Sign Out", signout_path %>
+      </h2>
+    <% else %>
+      <h2>
+        <%= link_to "Sign In", "/auth/twitter" %>
+      </h2>
+    <% end %>
   </div>
 </div>
 
