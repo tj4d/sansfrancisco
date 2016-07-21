@@ -14,9 +14,7 @@
         <%= link_to "Sign In", "/auth/twitter" %>
       </p>
     <% end %>
-    <p class="topNavItem">
-      <span style="text-decoration: line-through">Jobs</span>  (Coming Soon)
-    </p>
+    <%= nav_link "Jobs", jobs_path %>
     <%= nav_link "Library", publications_path %>
     <%= nav_link "Toolkit", root_path %>
   </div>
@@ -54,7 +52,7 @@
       <% end %>
     <% end %>
     <h2>
-      Jobs
+      <%= link_to "Jobs", jobs_path %>
     </h2>
     <% if current_user %>
       <h2>

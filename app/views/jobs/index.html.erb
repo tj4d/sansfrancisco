@@ -3,16 +3,16 @@
   <!-- Header
   ================================================== -->
 
-  <%= render(:partial => 'shared/header', locals: { :resource => @resource }) %>
+  <%= render(:partial => 'shared/header') %>
 
   <!-- ****** Large Announcement ****** -->
   <div class="announcement">
     <h1>
-      A collection of tools to help designers craft delightful experiences.
+      A collection of jobs to help designers make an impact.
     </h1>
   </div>
-        
-  <!-- Main Content
+  
+    <!-- Main Content
   ================================================== -->
   <div class="mainContent">
 
@@ -33,9 +33,7 @@
         <div class="navItem">
           <div class="navMarker"><i></i></div>
           <li>
-            <a href="https://twitter.com/home?status=%40robinsongreig%20Sans%20Francisco%20recommendation%20--%20" target="_blank">
-              Suggest a Tool
-            </a>
+            <%= link_to "Post a Job", new_job_path %>
           </li>
         </div>
         <div class="navItem">
@@ -44,7 +42,7 @@
         </div>
         <div class="navItem">
           <a href="https://twitter.com/home?status=Sans%20Francisco%20is%20a%20collection%20of%20digital%20resources%20for%20digital%20designers.%20www.sansfrancis.co%20via%20%40robinsongreig" target="_blank">
-          <!-- Rick Roll <a href="https://youtu.be/dQw4w9WgXcQ?t=43s" target="_blank">-->
+          <!--Rick Roll <a href="https://youtu.be/dQw4w9WgXcQ?t=43s" target="_blank">-->
             <button class="ui basic twitter button tweetThis">
               <i class="twitter icon"></i>
               Tweet
@@ -54,7 +52,7 @@
       </ul>
     </div>
 
-    <!-- Tool List 
+    <!-- Resource List 
     ************************************************** -->
     <div class="dataTable" id="dataTable">
 
@@ -67,40 +65,30 @@
         <div class="breakerBar"></div>
 
         <!-- Category Details -->
-        <% @resources.each do |resource| %>
-          <% if resource.category == category %>
-            <div class="resource">
-              <a href="<%= resource.url %>?ref=sansfrancisco" target="_blank">
-                <div class="resourceFavicon" style="background-image: url('https://www.google.com/s2/favicons?domain=<%= resource.url %>');"></div>
-                <h3> 
-                  <%= resource.name %>
+        <% @jobs.each do |job| %>
+          <% if job.category == category %>
+            <div class="job">
+              <a href="<%= job.url %>?ref=sansfrancisco" target="_blank">
+                <h3 class="companyName"> 
+                  <%= job.companyName %>
                 </h3>
+
+              <!-- Meta -->
+              <div class="meta" style="">
+                <p>
+                  <%= time_ago_in_words(job.created_at) %> ago <br>
+                  <%= job.location %> 
+                </p>
+              </div>
+
+              <p class="positionDescription">
+                <span class="positionTitle"><%= job.positionTitle %></span> working on <%= job.positionDescription %>
+              </p>
+              <p class="jobMeta">
+                
+              </p>
               </a>
 
-              <!-- Like/Unlike Button -->
-              <% if current_user %>
-                <!-- If the user is signed in, allow them to vote -->
-                <div class="votes">
-                  <% if (current_user.liked? resource) %>
-                    <!-- Unlike -->
-                    <%= render(:partial => 'unlike', :locals => {:resource => resource})%>
-                  <% else %>
-                    <!-- Like -->
-                    <%= render(:partial => 'like', :locals => {:resource => resource})%>
-                  <% end %>
-                </div>
-              <% else %>
-                <!-- If the user is not signed in, send them to Twitter -->
-                <%= link_to "/auth/twitter" do %>
-                  <button class="ui basic compact icon right floated button" data-tooltip="Heads up, you'll have to connect Twitter before you do that. Click away, tiger." data-variation="basic" data-position="top right">
-                    <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
-                  </button> 
-                <% end %>
-              <% end %>
-
-              <p class="resourceDescription">
-                <%= resource.description %>
-              </p>
             </div>
           <% end %>
         <% end %>

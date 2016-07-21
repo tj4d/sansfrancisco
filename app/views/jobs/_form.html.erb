@@ -1,0 +1,49 @@
+<div class="ui form">
+  <%= form_for(@job) do |f| %>
+    <% if @job.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
+
+        <ul>
+        <% @job.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label "Company Name" %><br>
+      <%= f.text_field :companyName, class: "ui input" %>
+    </div>
+    <div class="field">
+      <%= f.label "We’re looking for a" %><br>
+      <%= f.text_field :positionTitle, class: "ui input", placeholder: "Senior UI/UX Designer" %>
+    </div>
+    <div class="field">
+      <%= f.label "To work on" %><br>
+      <%= f.text_area :positionDescription, class: "ui input", placeholder: "A health and wellness mobile app" %>
+    </div>
+    <div class="field">
+      <%= f.label :location %><br>
+      <%= f.text_field :location, class: "ui input" %>
+    </div>
+    <div class="field">
+      <%= f.label :category %><br>
+      <%= f.select(:category, ['Contract', 'Internship', 'Apprenticeship', 'Full-Time', 'Part-Time'], {}, { :class => 'ui fluid dropdown' }) %>
+    </div>
+    <div class="field">
+      <%= f.label :application_url %><br>
+      <%= f.text_field :url, class: "ui input" %>
+    </div>
+    <div class="actions">
+      <%= f.submit 'Go!', class: "ui fluid pink button" %>
+    </div>
+  <% end %>
+</div>
+
+<script>
+  $('select.dropdown')
+    .dropdown()
+  ;
+</script>
