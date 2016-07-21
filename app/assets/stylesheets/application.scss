@@ -36,8 +36,11 @@ html {
 
 body{
 	color: $black;
-	overflow-x: hidden !important;
 	overflow-y: visible;
+}
+
+.container{
+	overflow-x: hidden !important;
 }
 
 h1, h2, h3{
