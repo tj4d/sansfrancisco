@@ -22,8 +22,25 @@
   </div>
 
   <div class="mobileTopNav">
-    <p>
-      <%= image_tag("hamburger.png", :alt => "Menu", class: "hamburger") %>
-    </p>
+    <button class="hamburger">
+      <%= image_tag("hamburger.png", :alt => "Menu") %>
+    </button>
+    <button class="cross">
+      <%= image_tag("hamburger.png", :alt => "Menu") %>
+    </button>
   </div>
 </div>
+
+<div class="mobileMenu">
+
+</div>
+
+<script>
+  $( ".cross" ).hide();
+  $( ".mobileMenu" ).hide();
+  $( ".hamburger" ).click(function() {
+    $( ".mobileMenu" ).slideToggle( "slow");
+    $( ".hamburger" ).hide();
+    $( ".cross" ).show();
+  });
+</script>

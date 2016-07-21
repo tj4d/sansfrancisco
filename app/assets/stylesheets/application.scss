@@ -157,6 +157,10 @@ a:hover{
 		margin: 29px 0 0 50px !important;
 		font-weight: 800;
 	}
+	button{
+		float: right;
+		margin: 23px 0 0 50px !important;
+	}
 }
 
 .announcement{
@@ -453,9 +457,17 @@ footer{
 
 .mobileTopNav{
 	display: none;
-	.hamburger{
-		height: 22px;
+	.hamburger, .cross{
+		img{
+			height: 22px;
+		}
 	}
+}
+
+.mobileMenu{
+	height: 100vh;
+	width: 100%;
+	margin: 0;
 }
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
@@ -469,6 +481,7 @@ footer{
 
 	.announcement{
 		margin-top: 15px !important;
+		padding: 45px 8.5298%;
 	}
 
 	.dataTable{

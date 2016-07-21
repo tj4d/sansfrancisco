@@ -56,5 +56,11 @@ function themeColor(){
   var random_color = colors[Math.floor(Math.random() * colors.length)];
   $('.announcement').css('background-color', random_color);
   $('.logo').css('text-shadow', '2px 2px' + random_color);
-  $('.activeNav').css('border-bottom', '5px solid' + random_color)
+  $('.activeNav').css('border-bottom', '5px solid' + random_color);
+  $('.mobileMenu').css('background-color', random_color);
 }
+
+/* 
+========= Mobile Menu =========
+*/
+
