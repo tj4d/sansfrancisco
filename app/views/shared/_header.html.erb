@@ -23,31 +23,27 @@
 
   <div class="mobileTopNav">
     <p class="hamburger">
-      <%= image_tag("hamburger.png", :alt => "Menu") %>
-    </p>
-    <p class="cross">
-      <%= image_tag("cross.png", :alt => "Menu") %>
+      <%= image_tag("hamburger.png", :alt => "Open Menu") %>
     </p>
   </div>
 </div>
 
-<div class="mobileMenu">
-
+<div class="overlay">
+  <div class="overlay-content">
+    <p class="cross">
+      <%= image_tag("cross.png", :alt => "Close Menu") %>
+    </p>
+    <%= nav_link "Library", publications_path %>
+    <%= nav_link "Toolkit", root_path %>
+  </div>
 </div>
 
 <script>
-$( ".cross" ).hide();
-$( ".mobileMenu" ).hide();
 $( ".hamburger" ).click(function() {
-  $( ".mobileMenu" ).slideToggle( "slow" );
-  $( ".hamburger" ).hide();
-  $( ".cross" ).show();
-  $( "body").css('overflow', hidden);
+  $( ".overlay" ).css('height', '100vh');
 });
 
 $( ".cross" ).click(function() {
-  $( ".mobileMenu" ).slideToggle( "slow");
-  $( ".cross" ).hide();
-  $( ".hamburger" ).show();
+  $( ".overlay" ).css('height', '0')
 });
 </script>
