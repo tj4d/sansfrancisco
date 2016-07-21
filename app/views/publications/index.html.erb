@@ -101,6 +101,10 @@
                 <p>
                   An <%= publication.medium %> written by <%= publication.author %>
                 </p>
+              <% elsif publication.medium == "blog" %>
+                <p>
+                  A <%= publication.medium %> featuring writing from <%= publication.author %>
+                </p>
               <% elsif publication.medium == "podcast" %>
                 <p>
                   A <%= publication.medium %> produced by <%= publication.author %>
