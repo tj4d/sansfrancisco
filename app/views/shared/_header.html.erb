@@ -22,12 +22,12 @@
   </div>
 
   <div class="mobileTopNav">
-    <button class="hamburger">
+    <p class="hamburger">
       <%= image_tag("hamburger.png", :alt => "Menu") %>
-    </button>
-    <button class="cross">
-      <%= image_tag("hamburger.png", :alt => "Menu") %>
-    </button>
+    </p>
+    <p class="cross">
+      <%= image_tag("cross.png", :alt => "Menu") %>
+    </p>
   </div>
 </div>
 
@@ -36,11 +36,18 @@
 </div>
 
 <script>
+$( ".cross" ).hide();
+$( ".mobileMenu" ).hide();
+$( ".hamburger" ).click(function() {
+  $( ".mobileMenu" ).slideToggle( "slow" );
+  $( ".hamburger" ).hide();
+  $( ".cross" ).show();
+  $( "body").css('overflow', hidden);
+});
+
+$( ".cross" ).click(function() {
+  $( ".mobileMenu" ).slideToggle( "slow");
   $( ".cross" ).hide();
-  $( ".mobileMenu" ).hide();
-  $( ".hamburger" ).click(function() {
-    $( ".mobileMenu" ).slideToggle( "slow");
-    $( ".hamburger" ).hide();
-    $( ".cross" ).show();
-  });
+  $( ".hamburger" ).show();
+});
 </script>
