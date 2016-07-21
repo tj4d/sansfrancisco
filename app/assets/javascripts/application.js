@@ -59,3 +59,16 @@ function themeColor(){
   $('.activeNav').css('border-bottom', '5px solid' + random_color);
   $('.overlay').css('background-color', random_color);
 }
+
+/* 
+========= Mobile Nav Overlay =========
+*/
+function navOverlay(){
+  $( ".hamburger" ).click(function() {
+    $( ".overlay" ).css('height', '100vh');
+  });
+
+  $( ".cross" ).click(function() {
+    $( ".overlay" ).css('height', '0')
+  });
+}
