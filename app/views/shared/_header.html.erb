@@ -4,7 +4,7 @@
     Sans Francisco
   </h3>
 
-  <div class="topNav">
+  <div class="desktopTopNav">
     <% if current_user %>
       <p>
         <%= link_to "Sign Out", signout_path %>
@@ -19,5 +19,11 @@
     </p>
     <%= nav_link "Library", publications_path %>
     <%= nav_link "Toolkit", root_path %>
+  </div>
+
+  <div class="mobileTopNav">
+    <p>
+      <%= image_tag("hamburger.png", :alt => "Menu", class: "hamburger") %>
+    </p>
   </div>
 </div>
