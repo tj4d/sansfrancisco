@@ -66,9 +66,11 @@ function themeColor(){
 function navOverlay(){
   $( ".hamburger" ).click(function() {
     $( ".overlay" ).css('height', '100vh');
+    $( "body" ).css('overflow-y', 'hidden');
   });
 
   $( ".cross" ).click(function() {
-    $( ".overlay" ).css('height', '0')
+    $( ".overlay" ).css('height', '0');
+    $( "body" ).css('overflow-y', 'visible');
   });
 }
