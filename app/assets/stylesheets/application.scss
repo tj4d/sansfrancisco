@@ -365,8 +365,10 @@ li{
 	margin-top: 0;
 }
 
-.dataTable h2{
-	clear: both;
+.dataTable {
+	h2{
+		clear: both;
+	}
 }
 
 .breakerBar{
@@ -455,7 +457,7 @@ li{
 }
 
 .ui.icon.buttons .button, .ui.icon.button{
-	font-family: "Source Sans Pro", sans serif;
+	font-family: "Source Sans Pro", sans-serif;
 	font-weight: 800;
 	margin-top: -23px;
 }

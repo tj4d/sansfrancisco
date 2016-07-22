@@ -58,6 +58,9 @@ function themeColor(){
   $('.logo').css('text-shadow', '2px 2px' + random_color);
   $('.activeNav').css('border-bottom', '5px solid' + random_color);
   $('.overlay').css('background-color', random_color);
+  if ($(window).width() <= 479){
+    $('.header').css('border-bottom', '2px solid' + random_color);
+  }
 }
 
 /* 

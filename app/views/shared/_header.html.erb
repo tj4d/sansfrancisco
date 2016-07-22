@@ -1,8 +1,10 @@
 <!-- ****** Primary Navigation ****** -->
 <div class="header">
-  <h3 class="logo">
-    Sans Francisco
-  </h3>
+  <%= link_to root_path do %>
+    <h3 class="logo">
+      Sans Francisco
+    </h3>
+  <% end %>
 
   <div class="desktopTopNav">
     <% if current_user %>

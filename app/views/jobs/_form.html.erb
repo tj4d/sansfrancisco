@@ -14,7 +14,7 @@
 
     <div class="field">
       <%= f.label "Company Name" %><br>
-      <%= f.text_field :companyName, class: "ui input" %>
+      <%= f.text_field :companyName, class: "ui input", placeholder: "Acme" %>
     </div>
     <div class="field">
       <%= f.label "We’re looking for a" %><br>
@@ -26,15 +26,15 @@
     </div>
     <div class="field">
       <%= f.label :location %><br>
-      <%= f.text_field :location, class: "ui input" %>
+      <%= f.text_field :location, class: "ui input", placeholder: "e.g. Boston, London, Remote" %>
     </div>
     <div class="field">
-      <%= f.label :category %><br>
+      <%= f.label "Position Type" %><br>
       <%= f.select(:category, ['Contract', 'Internship', 'Apprenticeship', 'Full-Time', 'Part-Time'], {}, { :class => 'ui fluid dropdown' }) %>
     </div>
     <div class="field">
-      <%= f.label :application_url %><br>
-      <%= f.text_field :url, class: "ui input" %>
+      <%= f.label ":application_url" %><br>
+      <%= f.text_field :url, class: "ui input", placeholder: "http://..." %>
     </div>
     <div class="actions">
       <%= f.submit 'Go!', class: "ui fluid pink button" %>

@@ -8,7 +8,7 @@
   <!-- ****** Large Announcement ****** -->
   <div class="announcement">
     <h1>
-      A collection of jobs to help designers make an impact.
+      A collection of jobs to help designers find their next project.
     </h1>
   </div>
   
@@ -33,7 +33,7 @@
         <div class="navItem">
           <div class="navMarker"><i></i></div>
           <li>
-            <%= link_to "Post a Job", new_job_path %>
+            <%= link_to "Post a Job", new_job_path %><br>(Free until Aug. 15th.)
           </li>
         </div>
         <div class="navItem">
@@ -42,7 +42,7 @@
         </div>
         <div class="navItem">
           <a href="https://twitter.com/home?status=Sans%20Francisco%20is%20a%20collection%20of%20digital%20resources%20for%20digital%20designers.%20www.sansfrancis.co%20via%20%40robinsongreig" target="_blank">
-          <!--Rick Roll <a href="https://youtu.be/dQw4w9WgXcQ?t=43s" target="_blank">-->
+          <!-- Rick Roll <a href="https://youtu.be/dQw4w9WgXcQ?t=43s" target="_blank">-->
             <button class="ui basic twitter button tweetThis">
               <i class="twitter icon"></i>
               Tweet
@@ -66,12 +66,13 @@
 
         <!-- Category Details -->
         <% @jobs.each do |job| %>
-          <% if job.category == category %>
+          <% if job.category == category %>  
             <div class="job">
               <a href="<%= job.url %>?ref=sansfrancisco" target="_blank">
                 <h3 class="companyName"> 
                   <%= job.companyName %>
                 </h3>
+              </a>
 
               <!-- Meta -->
               <div class="meta" style="">
@@ -82,13 +83,14 @@
               </div>
 
               <p class="positionDescription">
-                <span class="positionTitle"><%= job.positionTitle %></span> working on <%= job.positionDescription %>
+                <a href="<%= job.url %>?ref=sansfrancisco" target="_blank">
+                  <span class="positionTitle"><%= job.positionTitle %></span>
+                </a>
+                working on <%= job.positionDescription %>
               </p>
               <p class="jobMeta">
                 
               </p>
-              </a>
-
             </div>
           <% end %>
         <% end %>
