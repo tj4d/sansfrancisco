@@ -122,6 +122,10 @@
                 <p>
                   A <%= publication.medium %> taught by <%= publication.author %>
                 </p>
+              <% elsif publication.medium == "newsletter" %>
+                <p>
+                  A <%= publication.medium %> curated by <%= publication.author %>
+                </p>
               <% end %>
 
             </div>
