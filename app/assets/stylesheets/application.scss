@@ -14,7 +14,8 @@
 	#Data Table
 	#Footer
 	#Responsive
-	#New resource form
+	#Form
+	#Errors
 
 /* #Basic elements
 ================================================== */
@@ -511,33 +512,6 @@ footer{
 	}
 }
 
-/* #New resource form
-================================================== */
-
-.form{
-	@include span-columns(6);
-	@include shift(3);
-	margin-top: 20px;
-	margin-bottom: 20px;
-	h2{
-		text-align: center;
-	}
-	input, textarea{
-		width: 100%;
-	}
-}
-
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-	.form{
-		@include span-columns(4);
-		@include shift(0);
-	}
-}
-
-
-/* #New resource form
-================================================== */
-
 /* The Overlay (background) */
 .overlay {
     /* Height & width depends on how you want to reveal the overlay (see JS below) */    
@@ -570,3 +544,47 @@ footer{
     	height: 22px;
     }
 }
+
+/* #Form
+================================================== */
+
+.form{
+	@include span-columns(6);
+	@include shift(3);
+	margin-top: 20px;
+	margin-bottom: 20px;
+	h2{
+		text-align: center;
+	}
+	input, textarea{
+		width: 100%;
+	}
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+	.form{
+		@include span-columns(4);
+		@include shift(0);
+	}
+}
+
+
+/* #Errors
+================================================== */
+
+#error_explanation{
+	li{
+		float: none;
+		clear: none;
+		margin: 0 0 0 20px;
+		color: $black;
+		list-style-type: circle;
+		font-size: 18px;
+	}
+	h2{
+		font-size: 18px;
+	}
+}
+
+
+
