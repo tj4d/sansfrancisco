@@ -6,10 +6,10 @@ class JobsController < ApplicationController
   def index
     @jobs = Job.all.order(:created_at => :desc)
     @categories = {
-      "Internship"=>"internship",
-      "Apprenticeship"=>"apprenticeship",
       "Full-Time"=>"full-time",
       "Part-Time"=>"part-time",
+      "Internship"=>"internship",
+      "Apprenticeship"=>"apprenticeship",
       "Contract"=>"contract"
     }
   end
