@@ -87,14 +87,25 @@ h3 {
     text-transform: none;
 }
 
-p, li {
-    font-family: "Source Sans Pro", sans-serif;
-    font-size: 18px;
+p, li, input, button {
+    font-family: "Source Sans Pro", sans-serif !important;
     line-height: 1.60;
     opacity: 0.70;
     letter-spacing: -0.20px;
     word-spacing: 0.20px;
     text-transform: none;
+}
+
+.ui.button{
+	background: #F1F1F1 !important;
+}
+
+p, li{
+	font-size: 18px;
+}
+
+input{
+	font-size: 14px;
 }
 
 p{
@@ -277,7 +288,7 @@ a:hover{
 	}
 }
 
-.navItem:nth-last-child(3){
+.navItem:nth-last-child(2){
 	.navMarker{
 		background: #F1F1F1;
 	}
@@ -288,6 +299,7 @@ a:hover{
 	margin-top: 60px;
 }
 
+/*
 .navItem:nth-last-child(2){
 	.navMarker{
 		background: none;
@@ -297,6 +309,7 @@ a:hover{
 		border-top: none;
 	}
 }
+*/
 
 .credit{
 	text-decoration: underline;
@@ -348,6 +361,14 @@ li{
 .navMarker, .navMarker > i, li {
 	transition-timing-function: ease;
   	transition: 0.25s;
+}
+
+.newsletterBlock{
+	margin: 40px 0 0 0 !important;
+	li{
+		margin: 0 0 10px 0;
+		width: 80%;
+	}
 }
 
 /* #Sticky navbar
