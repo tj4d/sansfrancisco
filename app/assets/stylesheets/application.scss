@@ -80,7 +80,7 @@ h3 {
     font-weight: 400;
     line-height: 1.20;
     opacity: 1.00;
-    margin-top: 30px;
+    margin-top: 0px;
     margin-bottom: 5px;
     letter-spacing: 0.00px;
     word-spacing: 0.00px;
@@ -97,7 +97,8 @@ p, li, input, button {
 }
 
 .ui.button{
-	background: #F1F1F1 !important;
+	background: #B0DAED !important;
+	color: $black;
 }
 
 p, li{
@@ -152,6 +153,10 @@ a:hover{
 
 .sideNav-scrolled + .dataTable {
   	@include shift(3);
+}
+
+.sideNav-scrolled{
+	@include span-columns(3)
 }
 
 
@@ -296,7 +301,7 @@ a:hover{
 		border-left: 10px solid #F1F1F1;
 		border-top: 10px solid #F1F1F1;
 	}
-	margin-top: 60px;
+	margin-top: 40px;
 }
 
 /*
@@ -365,9 +370,15 @@ li{
 
 .newsletterBlock{
 	margin: 40px 0 0 0 !important;
+	padding: 10px 20px;
+	border: 1px dashed #B0DAED;
+	border-radius: 5px;
 	li{
 		margin: 0 0 10px 0;
-		width: 80%;
+		text-align: center;
+		width: 100%;
+		font-family: 'brandon-grotesque', sans-serif !important;
+
 	}
 }
 
@@ -436,10 +447,36 @@ li{
 	}
 }
 
+.newLabel{
+	display: inline-block;
+	margin-left: 10px;
+	background: #EDB0B1;
+	padding: 2px 5px;
+	color: white;
+	p{
+		font-weight: 800;
+		color: #fff;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		font-size: 12px;
+	}
+}
+
+.publication, .job{
+	margin-top: 30px;
+	p{
+		margin-top: 15px;
+	}
+}
+
 .resource{
 	position: relative;
+	margin-top: 30px;
 	h3, .resourceDescription{
 		margin-left: 31px;
+	}
+	h3{
+		display: inline-block;
 	}
 	.resourceFavicon{
 		position: absolute;
@@ -448,16 +485,6 @@ li{
 		width: 24px;
 		height: 24px;
 		background: left bottom no-repeat;
-	}
-}
-
-.publication, .job{
-
-	h3{
-		margin-top: 30px;
-	}
-	p{
-		margin-top: 15px;
 	}
 }
 
@@ -481,7 +508,7 @@ li{
 .ui.icon.buttons .button, .ui.icon.button{
 	font-family: "Source Sans Pro", sans-serif;
 	font-weight: 800;
-	margin-top: -23px;
+	margin-top: 0px;
 }
 
 /* #Footer
