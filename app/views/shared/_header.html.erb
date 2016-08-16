@@ -9,7 +9,7 @@
   <div class="desktopTopNav">
     <% if current_user %>
       <p>
-        <%= link_to "Sign Out", signout_path %>
+        <%= link_to image_tag(current_user.image_url, alt: current_user.name, :class => "avatar"), signout_path %>
       </p>
     <% else %>
       <p>
