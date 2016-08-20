@@ -10,7 +10,7 @@
     <% if current_user %>
       <p>
         <!-- = link_to "Sign Out", signout_path -->
-        <%= link_to image_tag(current_user.image_url, alt: current_user.name, :class => "avatar"), signout_path %> 
+        <%= link_to image_tag(current_user.image_url, alt: current_user.name, :class => "avatar"), current_user %> 
       </p>
     <% else %>
       <p>
@@ -22,6 +22,8 @@
     <%= nav_link "Toolkit", root_path %>
   </div>
 
+  <!-- Mobile Hamburger
+  ================================================== -->
   <div class="mobileTopNav">
     <p class="hamburger">
       <%= image_tag("hamburger.png", :alt => "Open Menu") %>
@@ -29,6 +31,9 @@
   </div>
 </div>
 
+
+<!-- Mobile Overlay
+================================================== -->
 <div class="overlay">
   <div class="overlay-content">
     <p class="cross">

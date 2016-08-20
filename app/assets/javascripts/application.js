@@ -61,6 +61,7 @@ function themeColor(){
   if ($(window).width() <= 479){
     $('.header').css('border-bottom', '2px solid' + random_color);
   }
+  $('.tab').css('border-bottom', '5px solid' + random_color);
 }
 
 /* 

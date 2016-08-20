@@ -1,0 +1,5 @@
+<%= link_to unlike_resource_path(resource), method: :get, remote: true, class: 'unlike_resource' do %>
+	<button class="ui basic compact icon right floated button vote_count">
+		<i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
+	</button> 
+<% end %>

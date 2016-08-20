@@ -1,0 +1,4 @@
+$('.unlike_resource').bind('ajax:success', function(){
+   $(this).closest('.unlike_resource').hide(); 
+   $(this).closest('.votes').html('<%= escape_javascript (render partial: 'like', locals: { :resource => @resource } ) %>');
+});
