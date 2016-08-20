@@ -104,7 +104,7 @@
               <% else %>
                 <!-- If the user is not signed in, send them to Twitter -->
                 <%= link_to "/auth/twitter" do %>
-                  <button class="ui basic compact icon right floated button" data-tooltip="Heads up, you'll have to connect Twitter before you do that. Click away, tiger." data-variation="basic" data-position="top right">
+                  <button class="ui basic compact icon right floated button" You need to sign in before voting. data-variation="basic" data-position="top right">
                     <i class="heart icon" style="color: #EDB0B1"></i> <%= publication.get_likes.size %>
                   </button> 
                 <% end %>
