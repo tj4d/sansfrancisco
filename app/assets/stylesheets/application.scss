@@ -609,12 +609,13 @@ footer{
 
 .profile {
 	padding-bottom: 50px;
+	list-style: none;
 	img{
 		display: block !important;
 		width: 200px;
 		border-radius: 20px;
 		border: 5px solid white;
-		margin: -100px 0 10px;
+		margin: -100px 0 20px;
 		box-shadow: 0px 2px 4px #eee;
 	}
 	.tabs{	
@@ -635,6 +636,13 @@ footer{
 				font-family: 'brandon-grotesque', sans-serif !important;
 			}
 		}
+	}
+	.navMarker{
+		background: #F1F1F1 !important;
+	}
+	.navMarker > i{
+		border-left: 10px solid #F1F1F1 !important;
+		border-top: 10px solid #F1F1F1 !important;
 	}
 }
 

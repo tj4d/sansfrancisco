@@ -14,13 +14,25 @@
   ================================================== -->
   <div class="profile">
   	  <div class="userInformation">
-  	  	  <%= image_tag @user.image_url, alt: @user.name, :class => "profile-photo" %>
+  	  	  <% if @user.image_url != nil %>
+		  	<%= image_tag @user.image_url, alt: @user.name, :class => "profile-photo" %>
+		  <% else %>
+		  	<%= image_tag "emptyPhoto.png", alt: @user.name, :class => "profile-photo" %>
+		  <% end %>
 	  	  <h3>
 	  	  	<%= @user.name %>
 	  	  </h3>
 	  	  <p>
 	  	  	<%= @user.location %>
 	  	  </p>
+	  	  <% if current_user == @user %>
+            <div class="navItem">
+              <div class="navMarker"><i></i></div>
+              <li>
+          	    <%= link_to "Sign Out", signout_path %>
+              </li>
+            </div>
+	      <% end %>
   	  </div>
 
   	  <div class="userToolkit">
@@ -41,7 +53,10 @@
 		  	  -->
   	  	  </div>
 
-	  	  <% @resource_votes.each do |resource| %>
+
+          <!-- Tools
+  		  ================================================== -->
+	  	  <% @resources.each do |resource| %>
 		    <div class="resource">
 		      <a href="<%= resource.url %>?ref=sansfrancis.co" target="_blank">
 		        <div class="resourceFavicon" style="background-image: url('https://www.google.com/s2/favicons?domain=<%= resource.url %>');"></div>
