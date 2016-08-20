@@ -1,1 +1,32 @@
-<%= image_tag current_user.image_url, alt: current_user.name, :class => "avatar" %>
+<div class="container">
+
+  <!-- Header
+  ================================================== -->
+
+  <%= render(:partial => 'shared/header') %>
+
+  <!-- ****** Large Announcement ****** -->
+  <div class="announcement">
+  </div>
+
+
+  <!-- Header
+  ================================================== -->
+  <div class="profile">
+  	  <%= image_tag current_user.image_url, alt: current_user.name, :class => "profile-photo" %>
+
+  	  <h3>
+  	  	<%= current_user.name %>
+  	  </h3>
+  	  <p>
+  	  	<%= current_user.location %>
+  	  </p>
+
+  </div>
+
+</div>
+
+<script>
+  themeColor();
+  navOverlay();
+</script>
