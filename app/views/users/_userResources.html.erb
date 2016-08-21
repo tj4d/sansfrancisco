@@ -1,0 +1,40 @@
+<!-- Tools
+================================================== -->
+<div id="userResources">
+	<% @resources.each do |resource| %>
+		<div class="resource">
+	      	<a href="<%= resource.url %>?ref=sansfrancis.co" target="_blank">
+	        	<div class="resourceFavicon" style="background-image: url('https://www.google.com/s2/favicons?domain=<%= resource.url %>');">
+	        	</div>
+	        	<h3> 
+	          		<%= resource.name %>
+	        	</h3>
+	      	</a>
+
+	      	<!-- Like/Unlike Button -->
+	      	<% if current_user %>
+	            <!-- If the user is signed in, allow them to vote -->
+	            <div class="votes">
+	              	<% if (current_user.liked? resource) %>
+	                	<!-- Unlike -->
+	                	<%= render(:partial => 'resources/unlike', :locals => {:resource => resource})%>
+	              	<% else %>
+	                	<!-- Like -->
+	                	<%= render(:partial => 'resources/like', :locals => {:resource => resource})%>
+	              	<% end %>
+	            </div>
+	      	<% else %>
+	        	<!-- If the user is not signed in, send them to Twitter -->
+	        	<%= link_to "/auth/twitter" do %>
+	              	<button class="ui basic compact icon right floated button" You need to sign in before voting. data-variation="basic" data-position="top right">
+	                	<i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
+	              	</button> 
+	        	<% end %>
+	      	<% end %>
+
+	      	<p class="resourceDescription">
+	        	<%= resource.description %>
+	      	</p>
+		</div>
+	<% end %>
+</div>

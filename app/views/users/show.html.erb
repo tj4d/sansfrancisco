@@ -1,103 +1,88 @@
 <div class="container">
 
-  <!-- Header
-  ================================================== -->
+	<!-- Header
+  	================================================== -->
 
-  <%= render(:partial => 'shared/header') %>
+  	<%= render(:partial => 'shared/header') %>
 
-  <!-- ****** Large Announcement ****** -->
-  <div class="announcement">
-  </div>
-
-
-  <!-- Header
-  ================================================== -->
-  <div class="profile">
-  	  <div class="userInformation">
-  	  	  <% if @user.image_url != nil %>
-		  	<%= image_tag @user.image_url, alt: @user.name, :class => "profile-photo" %>
-		  <% else %>
-		  	<%= image_tag "emptyPhoto.png", alt: @user.name, :class => "profile-photo" %>
-		  <% end %>
-	  	  <h3>
-	  	  	<%= @user.name %>
-	  	  </h3>
-	  	  <p>
-	  	  	<%= @user.location %>
-	  	  </p>
-	  	  <% if current_user == @user %>
-            <div class="navItem">
-              <div class="navMarker"><i></i></div>
-              <li>
-          	    <%= link_to "Sign Out", signout_path %>
-              </li>
-            </div>
-	      <% end %>
-  	  </div>
-
-  	  <div class="userToolkit">
-  	  	  <div class="tabs">
-  	  	  	  <p class="tab">
-		  	  	Tools <br>
-		  	  	<span class="value">
-		  	  		<%= @resource_votes.count %>
-		  	  	</span>
-		  	  </p>
-		  	  <!--
-		  	  <p class="tab">
-		  	  	Articles <br>
-		  	  	<span class="value">
-		  	  		= @publication_votes.count 
-		  	  	</span>
-		  	  </p>
-		  	  -->
-  	  	  </div>
+  	<!-- ****** Large Announcement ****** -->
+  	<div class="announcement">
+  	</div>
 
 
-          <!-- Tools
-  		  ================================================== -->
-	  	  <% @resources.each do |resource| %>
-		    <div class="resource">
-		      <a href="<%= resource.url %>?ref=sansfrancis.co" target="_blank">
-		        <div class="resourceFavicon" style="background-image: url('https://www.google.com/s2/favicons?domain=<%= resource.url %>');"></div>
-		        <h3> 
-		          <%= resource.name %>
-		        </h3>
-		      </a>
+  	<!-- Header
+  	================================================== -->
+  	<div class="profile">
+  	  	<div class="userInformation">
+  	  	  	<% if @user.image_url != nil %>
+		  		<%= image_tag @user.image_url, alt: @user.name, :class => "profile-photo" %>
+		  	<% else %>
+		  		<%= image_tag "emptyPhoto.png", alt: @user.name, :class => "profile-photo" %>
+		  	<% end %>
+	  	  	<h3>
+	  	  		<%= @user.name %>
+	  	  	</h3>
+	  	  	<p>
+	  	  		<%= @user.description %>
+	  	  	</p>
+	  	  	<p>
+	  	  		<%= @user.location %>
+	  	  	</p>
+	  	  	<% if current_user == @user %>
+            	<div class="navItem">
+              		<div class="navMarker">
+              			<i></i>
+              		</div>
+              		<li>
+          	    		<%= link_to "Sign Out", signout_path %>
+              		</li>
+            	</div>
+	      	<% end %>
+  	  	</div>
 
-		      <!-- Like/Unlike Button -->
-	          <% if current_user %>
-	            <!-- If the user is signed in, allow them to vote -->
-	            <div class="votes">
-	              <% if (current_user.liked? resource) %>
-	                <!-- Unlike -->
-	                <%= render(:partial => 'unlike', :locals => {:resource => resource})%>
-	              <% else %>
-	                <!-- Like -->
-	                <%= render(:partial => 'like', :locals => {:resource => resource})%>
-	              <% end %>
-	            </div>
-	          <% else %>
+  	  	<div class="userToolkit">
+  	  		<div class="tabs">
+  	  	  	  	<p class="tab activeTab" id="toolkitTab">
+		  	  		Toolkit <br>
+		  	  		<span class="value">
+		  	  			<%= @resource_votes.count %>
+		  	  		</span>
+		  	  	</p>
+		  	  	<p class="tab" id="libraryTab">
+		  	  		Library <br>
+		  	  		<span class="value">
+		  	  			<%= @publication_votes.count %>
+		  	  		</span>
+		  	  	</p>
+  	  	  	</div>
 
-	            <!-- If the user is not signed in, send them to Twitter -->
-	            <%= link_to "/auth/twitter" do %>
-	              <button class="ui basic compact icon right floated button" You need to sign in before voting. data-variation="basic" data-position="top right">
-	                <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
-	              </button> 
-	            <% end %>
-	          <% end %>
+  	  	  	<div class="list">
+	  	  	  	<%= render(:partial => 'userResources')%>
+	  	  	  	<%= render(:partial => 'userPublications') %>
+	  	  	</div>
 
-		      <p class="resourceDescription">
-		        <%= resource.description %>
-		      </p>
-		    </div>
-	  	  <% end %>
-  	  </div>
-  </div>
-
+  		</div>
+	</div>
 </div>
 
 <script>
-  themeColor();
-  navOverlay();
+	themeColor();
+	navOverlay();
+	$("#userPublications").hide();
+
+	$( "#libraryTab" ).click(function() {
+	  	$( this ).addClass("activeTab");
+	  	themeColor();
+	  	$("#userResources").slideUp(500);
+	  	$("#userPublications").slideDown(500);
+	  	$("#toolkitTab").css('border-bottom', 'none');
+	});
+
+	$( "#toolkitTab" ).click(function() {
+	  	$( this ).addClass("activeTab");
+	  	themeColor();
+	  	$("#userPublications").slideUp(500);
+	  	$("#userResources").slideDown(500);
+	  	$("#libraryTab").css('border-bottom', 'none');
+	});
 </script>
