@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+	def to_param
+	  nickname
+	end
 	def self.from_omniauth(auth)
 	  user = find_or_initialize_by(provider: auth.provider, uid: auth.uid)
 	  user.provider = auth["provider"]

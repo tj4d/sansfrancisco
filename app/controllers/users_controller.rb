@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by_nickname(params[:id])
     @resource_votes = @user.get_voted Resource
     @resources = @resource_votes.all.order(:cached_votes_up => :desc)
     @publication_votes = @user.get_voted Publication
