@@ -113,7 +113,7 @@
 
                 <!-- If the user is not signed in, send them to Twitter -->
                 <%= link_to "/auth/twitter" do %>
-                  <button class="ui basic compact icon right floated button" data-tooltip="You need to sign in before voting." data-variation="basic" data-position="top right">
+                  <button class="ui basic compact icon right floated button" data-tooltip="You need to sign in before saving this link." data-variation="basic" data-position="top right">
                     <i class="heart icon" style="color: #EDB0B1"></i> <%= resource.get_likes.size %>
                   </button> 
                 <% end %>

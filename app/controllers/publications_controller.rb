@@ -6,6 +6,7 @@ class PublicationsController < ApplicationController
   # GET /publications.json
   def index
     @publications = Publication.all.order(:cached_votes_up => :desc)
+    @publication_weeks = @publications.group_by { |t| t.created_at.beginning_of_week}
     @categories = {
       "Design Leadership"=>"design-leadership",
       "Graphic Design"=>"graphic-design",
@@ -15,6 +16,11 @@ class PublicationsController < ApplicationController
       "Thinking"=>"thinking",
       "User Research"=>"user-research",
     }
+    if params[:tag]
+      @publications = Publication.tagged_with(params[:tag])
+    else
+      @publications = Publication.all
+    end
   end
 
   def like
@@ -97,6 +103,6 @@ class PublicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def publication_params
-      params.require(:publication).permit(:title, :author, :description, :category, :medium, :url)
+      params.require(:publication).permit(:title, :author, :description, :category, :medium, :url, :tag_list)
     end
 end

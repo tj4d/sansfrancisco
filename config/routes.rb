@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 	resources :jobs
 	resources :users
+	get 'tags/:tag', to: 'publications#index', as: :tag
 	resources :publications do 
 		member do
 		    get "like", to: "publications#like"
