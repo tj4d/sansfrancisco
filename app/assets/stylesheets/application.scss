@@ -654,6 +654,16 @@ li{
 		position: fixed;
 		background-color: white;
 	}
+	.profile{
+		.userInformation, .userToolkit{
+			@include span-columns(10 of 10);
+		}
+		.profile-photo{
+			width: 125px !important;
+			margin-top: -50px !important;
+			border-radius: 10px !important;
+		}
+	}
 }
 
 /* The Overlay (background) */
@@ -695,7 +705,7 @@ li{
 .profile {
 	padding-bottom: 50px;
 	list-style: none;
-	img{
+	.profile-photo{
 		display: block !important;
 		width: 200px;
 		border-radius: 20px;
