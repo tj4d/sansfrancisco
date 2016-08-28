@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 	    	get "unlike", to: "resources#unlike"
 	  	end
 	end
-	root 'publications#index'
+	root 'resources#index'
 
 	get 'auth/twitter/callback', to: 'sessions#create'
 	get 'auth/failure', to: "resources#index"
