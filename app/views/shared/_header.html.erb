@@ -40,10 +40,10 @@
       <%= image_tag("cross.png", :alt => "Close Menu") %>
     </p>
     <h2>
-      <%= link_to "Library", root_path %>
+      <%= link_to "Toolkit", root_path %>
     </h2>
     <h2>
-      <%= link_to "Toolkit", resources_path %>
+      <%= link_to "Library", publications_path %>
     </h2>
     <% if current_page?(resources_path) %>
       <% @categories.each do |category, category_id| %>

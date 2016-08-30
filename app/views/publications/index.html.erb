@@ -42,9 +42,15 @@
         <div class="navItem">
           <div class="navMarker"><i></i></div>
           <li>
-            <a href="https://twitter.com/home?status=%40robinsongreig%20sansfrancis.co%20recommendation%20--%20" target="_blank">
-              Suggest a Resource
-            </a>
+            <!-- Allow users to post a link -->
+            <% if current_user %>
+              <%= link_to "Post Something New", new_publication_path %>
+            <% else %>
+              <!-- If the user is not signed in, send them to Twitter -->
+              <a href="https://twitter.com/home?status=%40robinsongreig%20sansfrancis.co%20recommendation%20--%20" target="_blank">
+                Suggest a Resource
+              </a>
+            <% end %>
           </li>
         </div>
 
