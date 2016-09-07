@@ -1,5 +1,8 @@
 class PublicationsController < ApplicationController
   before_action :set_publication, only: [:show, :edit, :update, :destroy]
+  before_action :save_original_path, only: [:like]
+  before_action :require_signin!, only: [:like]
+  after_action :clear_original_path, only: [:like]
   respond_to :html, :js
   
   # GET /publications
@@ -27,8 +30,11 @@ class PublicationsController < ApplicationController
     @publication = Publication.find(params[:id])
     @publication.liked_by current_user
     respond_to do |format|
-      format.html
-      format.js
+      if session[:return_to] != nil
+        format.html { redirect_to(publications_path) }
+      end
+        format.html
+        format.js
     end
   end
 
@@ -99,6 +105,14 @@ class PublicationsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_publication
       @publication = Publication.find(params[:id])
+    end
+
+    def save_original_path
+      session[:return_to] = request.fullpath
+    end
+
+    def clear_original_path
+      session[:return_to] = nil
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

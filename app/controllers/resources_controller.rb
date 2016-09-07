@@ -1,9 +1,13 @@
 class ResourcesController < ApplicationController
   before_action :set_resource, only: [:show, :edit, :update, :destroy]
+  before_action :save_original_path, only: [:like]
+  before_action :require_signin!, only: [:like]
+  after_action :clear_original_path, only: [:like]
   respond_to :html, :js
 
   # GET /resources
   # GET /resources.json
+
   def index
     @resources = Resource.all.order(:cached_votes_up => :desc)
     @categories = {
@@ -23,8 +27,11 @@ class ResourcesController < ApplicationController
     @resource = Resource.find(params[:id])
     @resource.liked_by current_user
     respond_to do |format|
-      format.html
-      format.js
+      if session[:return_to] != nil
+        format.html { redirect_to(resources_path) }
+      end
+        format.html
+        format.js
     end
   end
 
@@ -96,6 +103,15 @@ class ResourcesController < ApplicationController
     def set_resource
       @resource = Resource.find(params[:id])
     end
+
+    def save_original_path
+      session[:return_to] = request.fullpath
+    end
+
+    def clear_original_path
+      session[:return_to] = nil
+    end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def resource_params
