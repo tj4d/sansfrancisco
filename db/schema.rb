@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160821130918) do
+ActiveRecord::Schema.define(version: 20160907142223) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,8 +58,8 @@ ActiveRecord::Schema.define(version: 20160821130918) do
     t.string   "category"
     t.text     "description"
     t.string   "url"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.integer  "cached_votes_total",      default: 0
     t.integer  "cached_votes_score",      default: 0
     t.integer  "cached_votes_up",         default: 0
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20160821130918) do
     t.integer  "cached_weighted_score",   default: 0
     t.integer  "cached_weighted_total",   default: 0
     t.float    "cached_weighted_average", default: 0.0
+    t.boolean  "featured",                default: false
   end
 
   add_index "resources", ["cached_votes_down"], name: "index_resources_on_cached_votes_down", using: :btree

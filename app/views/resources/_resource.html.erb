@@ -12,6 +12,12 @@
       <p>New</p>
     </div>
   <% end %>
+
+  <% if resource.featured == true %>
+    <div class="newLabel">
+      <p>Featured</p>
+    </div>
+  <% end %>
   
   <!-- Like/Unlike Button -->
   <% if current_user %>
