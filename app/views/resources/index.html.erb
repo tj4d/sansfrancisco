@@ -52,11 +52,13 @@
         <%= render(:partial => 'shared/newsletterForm')%>
       </div>
       <!-- Featured Resources -->
-      <% @resources.each do |resource| %>
-        <% if resource.featured == true %>
-          <%= render(:partial => 'resource', :locals => {:resource => resource})%>
+      <div class="featuredResources">
+        <% @resources.each do |resource| %>
+          <% if resource.featured == true %>
+            <%= render(:partial => 'resource', :locals => {:resource => resource})%>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
 
       <% @categories.each do |category, category_id| %>
 

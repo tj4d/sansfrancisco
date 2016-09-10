@@ -441,15 +441,18 @@ li{
 .dataTable {
 	h2{
 		clear: both;
-		&:first-of-type{
-			margin-top: 0 !important;
-		}
 	}
 }
 
 .breakerBar{
 	height: 10px;
 	width: 50px;
+}
+
+.featuredResources{
+	.resource{
+		margin-top: 0 !important;
+	}
 }
 
 .dataTable{
