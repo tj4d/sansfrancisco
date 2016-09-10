@@ -180,6 +180,9 @@ a:hover{
 		font-weight: 800;
 	}
 	.ui.button{
+		margin-left: 0 !important;
+	}
+	.ui.button{
 		box-shadow: 0px 4px 0px #B0B1ED;
 		margin-top: 28px !important;
 	}
@@ -188,14 +191,11 @@ a:hover{
 .ui.small.modal{
 	max-width: 300px !important;
 	margin: -71px auto auto !important;
-	left: 490px !important;
+	left: 38% !important;
 	.newsletterBlock{
 		margin-top: 0 !important;
 		padding-top: 20px;
 		padding-bottom: 20px;
-		li{
-			list-style: none;
-		}
 	}
 }
 
@@ -404,16 +404,18 @@ li{
 	padding: 10px 20px;
 	background: #B0DAED;
 	border-radius: 5px;
-	box-shadow: 0px 5px 0px #B0B1ED;
 	li{
 		margin: 0 0 10px 0;
 		text-align: center;
 		width: 100%;
 		font-family: 'brandon-grotesque', sans-serif !important;
-
+		list-style: none;
 	}
 	.ui.input input{
 		border: none;
+	}
+	.ui.action.input{
+		width: 100%;
 	}
 	.ui.button{
 		background: #B0EDD7 !important;
@@ -439,6 +441,9 @@ li{
 .dataTable {
 	h2{
 		clear: both;
+		&:first-of-type{
+			margin-top: 0 !important;
+		}
 	}
 }
 
@@ -529,8 +534,6 @@ li{
 		}
 	}
 }
-
-
 
 .tag_cloud{
 	.tag{
@@ -655,6 +658,10 @@ li{
 	}
 }
 
+.mobileShow{
+	display: none;
+}
+
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
 	.sideNav, .desktopTopNav{
 		display: none;
@@ -688,12 +695,20 @@ li{
 		}
 		.profile-photo{
 			width: 125px !important;
+			height: 125px !important;
 			margin-top: -50px !important;
 			border-radius: 10px !important;
 		}
 	}
 	.mobileHide{
 		display: none;
+	}
+	.mobileShow{
+		display: block !important;
+		.newsletterBlock{
+			margin-top: 0 !important;
+			margin-bottom: 40px !important;
+		}
 	}
 }
 
@@ -714,7 +729,7 @@ li{
 .overlay-content {
     width: 100%; /* 100% width */
     text-align: center; /* Centered text/links */
-    padding-top: 40px;
+    padding-top: 200px;
     h2{
     	margin-top: 30px;
     }

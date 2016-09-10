@@ -48,7 +48,9 @@
     <!-- Tool List 
     ************************************************** -->
     <div class="dataTable" id="dataTable">
-
+      <div class="mobileShow">
+        <%= render(:partial => 'shared/newsletterForm')%>
+      </div>
       <!-- Featured Resources -->
       <% @resources.each do |resource| %>
         <% if resource.featured == true %>

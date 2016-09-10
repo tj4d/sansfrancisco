@@ -62,6 +62,9 @@
     <!-- Resource List 
     ************************************************** -->
     <div class="dataTable" id="dataTable">
+      <div class="mobileShow">
+        <%= render(:partial => 'shared/newsletterForm')%>
+      </div>
       <% if request.original_url.include?('tags') %>
         <% @publications.each do |publication| %>
           <%= render(:partial => 'publication', :locals => {:publication => publication})%>
