@@ -17,14 +17,24 @@
         <%= link_to "Sign In", "/auth/twitter" %>
       </p>
     <% end %>
-    <%= nav_link "Jobs", jobs_path %>
     <%= nav_link "Library", publications_path %>
     <%= nav_link "Toolkit", root_path %>
+    <button class="ui compact labeled icon button" id="headerNewsletterButton">
+      <i class="mail icon"></i>
+      Subscribe
+    </button>
   </div>
 
-  <!-- Mobile Hamburger
+<!-- Modal
   ================================================== -->
-  <div class="mobileTopNav">
+<div class="ui small modal">
+  <i class="close icon"></i>
+<%= render(:partial => 'shared/newsletterForm')%>
+</div>
+
+<!-- Mobile Hamburger
+================================================== -->
+<div class="mobileTopNav">
     <p class="hamburger">
       <%= image_tag("hamburger.png", :alt => "Open Menu") %>
     </p>
@@ -52,9 +62,6 @@
         </div>
       <% end %>
     <% end %>
-    <h2>
-      <%= link_to "Jobs", jobs_path %>
-    </h2>
     <% if current_user %>
       <h2>
         <%= link_to "Profile", current_user %>

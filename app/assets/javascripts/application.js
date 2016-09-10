@@ -78,3 +78,15 @@ function navOverlay(){
     $( "body" ).css('overflow-y', 'visible');
   });
 }
+
+/* 
+========= Mobile Nav Overlay =========
+*/
+function newsletterModal(){
+  $("#headerNewsletterButton").click(function(){
+    $('.small.modal')
+      .modal('show')
+    ;
+  })
+}
+

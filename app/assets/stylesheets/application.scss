@@ -87,12 +87,15 @@ h3 {
     text-transform: none;
 }
 
-p, li, input, button {
+p, li, input, .ui.button{
     font-family: "Source Sans Pro", sans-serif !important;
-    line-height: 1.60;
     letter-spacing: -0.20px;
     word-spacing: 0.20px;
     text-transform: none;
+}
+
+p,li,input{
+	line-height: 1.60;
 }
 
 .ui.button{
@@ -115,7 +118,7 @@ p{
 }
 
 li{
-	font-weight: 200;
+	font-weight: 300;
 	opacity: 0.70;
 }
 
@@ -171,10 +174,28 @@ a:hover{
 		color: white;
 		font-size: 30px;
 	}
-	p{
+	p, .ui.button{
 		float: right;
 		margin: 29px 0 0 50px !important;
 		font-weight: 800;
+	}
+	.ui.button{
+		box-shadow: 0px 4px 0px #B0B1ED;
+		margin-top: 28px !important;
+	}
+}
+
+.ui.small.modal{
+	max-width: 300px !important;
+	margin: -71px auto auto !important;
+	left: 490px !important;
+	.newsletterBlock{
+		margin-top: 0 !important;
+		padding-top: 20px;
+		padding-bottom: 20px;
+		li{
+			list-style: none;
+		}
 	}
 }
 
@@ -381,14 +402,21 @@ li{
 .newsletterBlock{
 	margin: 40px 0 0 0 !important;
 	padding: 10px 20px;
-	border: 1px dashed #B0DAED;
+	background: #B0DAED;
 	border-radius: 5px;
+	box-shadow: 0px 5px 0px #B0B1ED;
 	li{
 		margin: 0 0 10px 0;
 		text-align: center;
 		width: 100%;
 		font-family: 'brandon-grotesque', sans-serif !important;
 
+	}
+	.ui.input input{
+		border: none;
+	}
+	.ui.button{
+		background: #B0EDD7 !important;
 	}
 }
 

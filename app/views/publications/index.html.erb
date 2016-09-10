@@ -54,17 +54,7 @@
           </li>
         </div>
 
-        <div class="newsletterBlock">
-          <li>
-            Sans Weekly<br><span style="font-family: 'Source Sans Pro', sans-serif;">Weekly bundle of tools and articles.</span>
-          </li>
-          <form action="//sansfrancis.us13.list-manage.com/subscribe/post?u=ff2cc04426b8359a5ba60e9bc&amp;id=fe9204d2d5" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-            <div class="ui action input">
-              <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email Address">
-              <button class="ui button">Subscribe</button>
-            </div>
-          </form>
-        </div>
+        <%= render(:partial => 'shared/newsletterForm')%>
 
       </ul>
     </div>
@@ -95,4 +85,5 @@
   stickyNav();
   themeColor();
   navOverlay();
+  newsletterModal();
 </script>
