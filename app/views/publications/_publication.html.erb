@@ -24,6 +24,11 @@
       </button> 
     <% end %>
   <% end %>
+  <a href="https://twitter.com/intent/tweet?text=<%= publication.title%>%20<%= publication.url%>%20%23<%= publication.tag_list%> via %40sansfrancis_co" target="_blank">
+    <button class="ui basic compact icon right floated button vote_count">
+      <i class="twitter icon" style="color: #B0DAED"></i>
+    </button> 
+  </a>
 
   <% if publication.medium == "book" %>
     <p>
