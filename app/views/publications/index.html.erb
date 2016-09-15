@@ -1,86 +1,78 @@
-<div class="container">
+<!-- ****** Large Announcement ****** -->
+<div class="announcement">
+  <h1>
+    A collection of resources to help designers learn and grow.
+  </h1>
+</div>
 
-  <!-- Header
-  ================================================== -->
+<!-- Main Content
+================================================== -->
+<div class="mainContent">
 
-  <%= render(:partial => 'shared/header', locals: { :resource => @resource }) %>
+  <!-- Side Navigation 
+  ************************************************** -->
+  <div class="sideNav">
+    <ul>
 
-  <!-- ****** Large Announcement ****** -->
-  <div class="announcement">
-    <h1>
-      A collection of resources to help designers learn and grow.
-    </h1>
-  </div>
-
-  <!-- Main Content
-  ================================================== -->
-  <div class="mainContent">
-
-    <!-- Side Navigation 
-    ************************************************** -->
-    <div class="sideNav">
-      <ul>
-
-      <!-- Tag Cloud -->
-        <div class="tag_cloud">
-          <% tag_cloud Publication.tag_counts, %w{s m l} do |tag| %>
-            <%= link_to tag.name, tag_path(tag.name), :class => "tag" %>
-          <% end %>
-        </div>
-        
-        <!-- Category Nav List -->
-        <!-- 
-        < @categories.each do |category, category_id| >
-          <div class="navItem">
-            <div class="navMarker"><i></i></div>
-            <li><a href="#<= category_id >"><= category ></a></li>
-          </div>
-        < end >
-        -->
-        
-        <!-- Nav Footer -->
+    <!-- Tag Cloud -->
+      <div class="tag_cloud">
+        <% tag_cloud Publication.tag_counts, %w{s m l} do |tag| %>
+          <%= link_to tag.name, tag_path(tag.name), :class => "tag" %>
+        <% end %>
+      </div>
+      
+      <!-- Category Nav List -->
+      <!-- 
+      < @categories.each do |category, category_id| >
         <div class="navItem">
           <div class="navMarker"><i></i></div>
-          <li>
-            <!-- Allow users to post a link -->
-            <% if current_user %>
-              <%= link_to "Post Something New", new_publication_path %>
-            <% else %>
-              <!-- If the user is not signed in, send them to Twitter -->
-              <a href="https://twitter.com/home?status=%40robinsongreig%20sansfrancis.co%20recommendation%20--%20" target="_blank">
-                Suggest a Resource
-              </a>
-            <% end %>
-          </li>
+          <li><a href="#<= category_id >"><= category ></a></li>
         </div>
-
-        <%= render(:partial => 'shared/newsletterForm')%>
-
-      </ul>
-    </div>
-
-    <!-- Resource List 
-    ************************************************** -->
-    <div class="dataTable" id="dataTable">
-      <div class="mobileShow">
-        <%= render(:partial => 'shared/newsletterForm')%>
+      < end >
+      -->
+      
+      <!-- Nav Footer -->
+      <div class="navItem">
+        <div class="navMarker"><i></i></div>
+        <li>
+          <!-- Allow users to post a link -->
+          <% if current_user %>
+            <%= link_to "Post Something New", new_publication_path %>
+          <% else %>
+            <!-- If the user is not signed in, send them to Twitter -->
+            <a href="https://twitter.com/home?status=%40robinsongreig%20sansfrancis.co%20recommendation%20--%20" target="_blank">
+              Suggest a Resource
+            </a>
+          <% end %>
+        </li>
       </div>
-      <% if request.original_url.include?('tags') %>
-        <% @publications.each do |publication| %>
+
+      <%= render(:partial => 'shared/newsletterForm')%>
+
+    </ul>
+  </div>
+
+  <!-- Resource List 
+  ************************************************** -->
+  <div class="dataTable" id="dataTable">
+    <div class="mobileShow">
+      <%= render(:partial => 'shared/newsletterForm')%>
+    </div>
+    <% if request.original_url.include?('tags') %>
+      <% @publications.each do |publication| %>
+        <%= render(:partial => 'publication', :locals => {:publication => publication})%>
+      <% end %>
+    <% else %>
+      <% @publication_weeks.sort.reverse.each do |week, publications| %>
+        <h2>Week of <%= week.strftime('%b %d') %></h2>
+        <div class="breakerBar"></div>
+        <% for publication in publications %>
           <%= render(:partial => 'publication', :locals => {:publication => publication})%>
         <% end %>
-      <% else %>
-        <% @publication_weeks.sort.reverse.each do |week, publications| %>
-          <h2>Week of <%= week.strftime('%b %d') %></h2>
-          <div class="breakerBar"></div>
-          <% for publication in publications %>
-            <%= render(:partial => 'publication', :locals => {:publication => publication})%>
-          <% end %>
-        <% end %>
       <% end %>
-    </div>
-
+    <% end %>
   </div>
+
 </div>
 
 <script>

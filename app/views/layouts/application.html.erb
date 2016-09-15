@@ -45,8 +45,18 @@
 	</script>	
 </head>
 <body>
-	
-<%= yield %>
+	<div class="container">
+	  	<!-- Header
+	  	================================================== -->
+		<%= render(:partial => 'shared/header')%>
+		
+		<!-- Content
+	  	================================================== -->
+		<%= yield %>
 
+		<!-- Footer
+		================================================== -->
+		<%= render(:partial => 'shared/footer')%>
+	</div>
 </body>
 </html>

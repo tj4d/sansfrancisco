@@ -1,83 +1,75 @@
-<div class="container">
+<!-- ****** Large Announcement ****** -->
+<div class="announcement">
+  <h1>
+    A collection of tools to help designers craft delightful experiences.
+  </h1>
+</div>
+      
+<!-- Main Content
+================================================== -->
+<div class="mainContent">
 
-  <!-- Header
-  ================================================== -->
+  <!-- Side Navigation 
+  ************************************************** -->
+  <div class="sideNav">
+    <ul>
 
-  <%= render(:partial => 'shared/header', locals: { :resource => @resource }) %>
-
-  <!-- ****** Large Announcement ****** -->
-  <div class="announcement">
-    <h1>
-      A collection of tools to help designers craft delightful experiences.
-    </h1>
-  </div>
-        
-  <!-- Main Content
-  ================================================== -->
-  <div class="mainContent">
-
-    <!-- Side Navigation 
-    ************************************************** -->
-    <div class="sideNav">
-      <ul>
-
-        <!-- Category Nav List -->
-        <% @categories.each do |category, category_id| %>
-          <div class="navItem">
-            <div class="navMarker"><i></i></div>
-            <li><a href="#<%= category_id %>"><%= category %></a></li>
-          </div>
-        <% end %>
-        
-        <!-- Nav Footer -->
+      <!-- Category Nav List -->
+      <% @categories.each do |category, category_id| %>
         <div class="navItem">
           <div class="navMarker"><i></i></div>
-          <li>
-            <a href="https://twitter.com/home?status=%40robinsongreig%20sansfrancis.co%20recommendation%20--%20" target="_blank">
-              Suggest a Tool
-            </a>
-          </li>
+          <li><a href="#<%= category_id %>"><%= category %></a></li>
         </div>
+      <% end %>
+      
+      <!-- Nav Footer -->
+      <div class="navItem">
+        <div class="navMarker"><i></i></div>
+        <li>
+          <a href="https://twitter.com/home?status=%40robinsongreig%20sansfrancis.co%20recommendation%20--%20" target="_blank">
+            Suggest a Tool
+          </a>
+        </li>
+      </div>
 
-        <%= render(:partial => 'shared/newsletterForm')%>
+      <%= render(:partial => 'shared/newsletterForm')%>
 
 
-      </ul>
+    </ul>
+  </div>
+
+  <!-- Tool List 
+  ************************************************** -->
+  <div class="dataTable" id="dataTable">
+    <div class="mobileShow">
+      <%= render(:partial => 'shared/newsletterForm')%>
     </div>
-
-    <!-- Tool List 
-    ************************************************** -->
-    <div class="dataTable" id="dataTable">
-      <div class="mobileShow">
-        <%= render(:partial => 'shared/newsletterForm')%>
-      </div>
-      <!-- Featured Resources -->
-      <div class="featuredResources">
-        <% @resources.each do |resource| %>
-          <% if resource.featured == true %>
-            <%= render(:partial => 'resource', :locals => {:resource => resource})%>
-          <% end %>
-        <% end %>
-      </div>
-
-      <% @categories.each do |category, category_id| %>
-
-        <!-- Category Title -->
-        <h2 id="<%= category_id %>">
-          <%= category %>
-        </h2>
-        <div class="breakerBar"></div>
-
-        <!-- Category Details -->
-        <% @resources.each do |resource| %>
-          <% if resource.category == category %>
-            <%= render(:partial => 'resource', :locals => {:resource => resource})%>
-          <% end %>
+    <!-- Featured Resources -->
+    <div class="featuredResources">
+      <% @resources.each do |resource| %>
+        <% if resource.featured == true %>
+          <%= render(:partial => 'resource', :locals => {:resource => resource})%>
         <% end %>
       <% end %>
     </div>
 
+    <% @categories.each do |category, category_id| %>
+
+      <!-- Category Title -->
+      <h2 id="<%= category_id %>">
+        <%= category %>
+      </h2>
+      <div class="breakerBar"></div>
+
+      <!-- Category Details -->
+      <% @resources.each do |resource| %>
+        <% if resource.category == category %>
+          <%= render(:partial => 'resource', :locals => {:resource => resource})%>
+        <% end %>
+      <% end %>
+    <% end %>
   </div>
+
 </div>
 
 <script>

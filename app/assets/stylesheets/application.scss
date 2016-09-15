@@ -12,6 +12,7 @@
 	#Side navbar
 	#Sticky navbar
 	#Data Table
+	#Header
 	#Responsive
 	#Profile
 	#Form
@@ -141,7 +142,7 @@ a:hover{
 /* #Element Spacing
 ================================================== */
 
-.header, .announcement, .mainContent, .profile {
+.header, .announcement, .mainContent, .profile, .footerContent {
     @include span-columns(10);
 	@include shift(1);
 }
@@ -160,6 +161,10 @@ a:hover{
 
 .sideNav-scrolled{
 	@include span-columns(3)
+}
+
+.footer{
+	@include span-columns(12);
 }
 
 /* #Header
@@ -216,10 +221,14 @@ a:hover{
 ================================================== */
 
 .mainContent{
-	margin-top: 40px;
 	padding-bottom: 100px;
 	.sideNav{
+		padding-top: 40px;
 		margin-right: 2.79%;
+		z-index: -1;
+	}
+	.dataTable{
+		padding-top: 40px;
 	}
 }
 
@@ -427,7 +436,6 @@ li{
 
 .sideNav-scrolled {
   position: fixed;
-  margin-top: 38px;
   top: 0;
 }
 
@@ -450,9 +458,9 @@ li{
 }
 
 .featuredResources{
-	margin-bottom: 60px;
 	.resource{
 		margin-top: 0 !important;
+		margin-bottom: 60px !important;
 	}
 }
 
@@ -651,6 +659,26 @@ li{
 	font-family: "Source Sans Pro", sans-serif;
 	font-weight: 800;
 	margin-top: -25px;
+}
+
+/* #Data Table
+================================================== */
+
+.footer{
+	clear: both;
+	display: inline-block;
+	background: #B0DAED;
+	margin-top: 60px;
+	padding-bottom: 50px;
+	padding-top: 25px;
+	p{
+		text-align: center;
+		margin: 15px 0;
+	}
+	.about, .about a{
+		font-size: 16px;
+		color: #f1f1f1 !important;
+	}
 }
 
 /* #Responsive

@@ -32,20 +32,17 @@ function scrollToDiv(){
 ========= Sticky nav =========
 */
 function stickyNav(){
-var  mn = $(".sideNav");
-  intro = $(".mainContent");
-  mns = "sideNav-scrolled";
-  fix = "sticky_fix";
+  var fixedDiv = $('.sideNav');
+  var startFixed = fixedDiv.offset().top - 75;                  // get initial position of the element
+  $(window).scroll(function() {                                 // assign scroll event listener
+      var currentScroll = $(window).scrollTop();                // get current position
 
-$(window).scroll(function() {
-  if( $(this).scrollTop() > 429 ) {
-    mn.addClass(mns);
-    intro.addClass(fix);
-  } else {
-    mn.removeClass(mns);
-    intro.removeClass(fix);
-  }
-});
+      if (currentScroll >= startFixed) {                        // apply position: fixed if you
+          $('.sideNav').addClass('sideNav-scrolled');
+      } else {                                                  // apply position: static
+          $('.sideNav').removeClass('sideNav-scrolled');        // if you scroll above it
+      }
+  });
 }
 
 /* 

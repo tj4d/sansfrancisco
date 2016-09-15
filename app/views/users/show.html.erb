@@ -1,67 +1,59 @@
-<div class="container">
+<!-- ****** Large Announcement ****** -->
+<div class="announcement">
+</div>
 
-	<!-- Header
-  	================================================== -->
 
-  	<%= render(:partial => 'shared/header') %>
-
-  	<!-- ****** Large Announcement ****** -->
-  	<div class="announcement">
+<!-- Header
+================================================== -->
+<div class="profile">
+  	<div class="userInformation">
+  	  	<% if @user.image_url != nil %>
+  		<%= image_tag @user.image_url, alt: @user.name, :class => "profile-photo" %>
+  	<% else %>
+  		<%= image_tag "emptyPhoto.png", alt: @user.name, :class => "profile-photo" %>
+  	<% end %>
+	  	<h3>
+	  		<%= @user.name %>
+	  	</h3>
+	  	<p>
+	  		<%= @user.description %>
+	  	</p>
+	  	<p>
+	  		<%= @user.location %>
+	  	</p>
+	  	<% if current_user == @user %>
+    	<div class="navItem">
+      		<div class="navMarker">
+      			<i></i>
+      		</div>
+      		<li>
+  	    		<%= link_to "Sign Out", signout_path %>
+      		</li>
+    	</div>
+  	<% end %>
   	</div>
 
-
-  	<!-- Header
-  	================================================== -->
-  	<div class="profile">
-  	  	<div class="userInformation">
-  	  	  	<% if @user.image_url != nil %>
-		  		<%= image_tag @user.image_url, alt: @user.name, :class => "profile-photo" %>
-		  	<% else %>
-		  		<%= image_tag "emptyPhoto.png", alt: @user.name, :class => "profile-photo" %>
-		  	<% end %>
-	  	  	<h3>
-	  	  		<%= @user.name %>
-	  	  	</h3>
-	  	  	<p>
-	  	  		<%= @user.description %>
-	  	  	</p>
-	  	  	<p>
-	  	  		<%= @user.location %>
-	  	  	</p>
-	  	  	<% if current_user == @user %>
-            	<div class="navItem">
-              		<div class="navMarker">
-              			<i></i>
-              		</div>
-              		<li>
-          	    		<%= link_to "Sign Out", signout_path %>
-              		</li>
-            	</div>
-	      	<% end %>
+  	<div class="userToolkit">
+  		<div class="tabs">
+  	  	  	<p class="tab activeTab" id="toolkitTab">
+  	  		Toolkit <br>
+  	  		<span class="value">
+  	  			<%= @resource_votes.count %>
+  	  		</span>
+  	  	</p>
+  	  	<p class="tab" id="libraryTab">
+  	  		Library <br>
+  	  		<span class="value">
+  	  			<%= @publication_votes.count %>
+  	  		</span>
+  	  	</p>
   	  	</div>
 
-  	  	<div class="userToolkit">
-  	  		<div class="tabs">
-  	  	  	  	<p class="tab activeTab" id="toolkitTab">
-		  	  		Toolkit <br>
-		  	  		<span class="value">
-		  	  			<%= @resource_votes.count %>
-		  	  		</span>
-		  	  	</p>
-		  	  	<p class="tab" id="libraryTab">
-		  	  		Library <br>
-		  	  		<span class="value">
-		  	  			<%= @publication_votes.count %>
-		  	  		</span>
-		  	  	</p>
-  	  	  	</div>
+  	  	<div class="list">
+	  	  	<%= render(:partial => 'userResources')%>
+	  	  	<%= render(:partial => 'userPublications') %>
+	  	</div>
 
-  	  	  	<div class="list">
-	  	  	  	<%= render(:partial => 'userResources')%>
-	  	  	  	<%= render(:partial => 'userPublications') %>
-	  	  	</div>
-
-  		</div>
 	</div>
 </div>
 
