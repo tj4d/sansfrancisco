@@ -12,7 +12,7 @@
 	#Side navbar
 	#Sticky navbar
 	#Data Table
-	#Header
+	#Footer
 	#Responsive
 	#Profile
 	#Form
@@ -225,7 +225,6 @@ a:hover{
 	.sideNav{
 		padding-top: 40px;
 		margin-right: 2.79%;
-		z-index: -1;
 	}
 	.dataTable{
 		padding-top: 40px;
@@ -669,11 +668,11 @@ li{
 	display: inline-block;
 	background: #B0DAED;
 	margin-top: 60px;
-	padding-bottom: 50px;
+	padding-bottom: 70px;
 	padding-top: 25px;
 	p{
 		text-align: center;
-		margin: 15px 0;
+		margin: 0 0 15px 0;
 	}
 	.about, .about a{
 		font-size: 16px;

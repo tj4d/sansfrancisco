@@ -24,18 +24,18 @@
       Subscribe
     </button>
   </div>
-</div>
 
-<!-- Modal
+
+  <!-- Modal
+    ================================================== -->
+  <div class="ui small modal">
+    <i class="close icon"></i>
+    <%= render(:partial => 'shared/newsletterForm')%>
+  </div>
+
+  <!-- Mobile Hamburger
   ================================================== -->
-<div class="ui small modal">
-  <i class="close icon"></i>
-<%= render(:partial => 'shared/newsletterForm')%>
-</div>
-
-<!-- Mobile Hamburger
-================================================== -->
-<div class="mobileTopNav">
+  <div class="mobileTopNav">
     <p class="hamburger">
       <%= image_tag("hamburger.png", :alt => "Open Menu") %>
     </p>

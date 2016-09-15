@@ -29,23 +29,6 @@ function scrollToDiv(){
 }
 
 /* 
-========= Sticky nav =========
-*/
-function stickyNav(){
-  var fixedDiv = $('.sideNav');
-  var startFixed = fixedDiv.offset().top - 75;                  // get initial position of the element
-  $(window).scroll(function() {                                 // assign scroll event listener
-      var currentScroll = $(window).scrollTop();                // get current position
-
-      if (currentScroll >= startFixed) {                        // apply position: fixed if you
-          $('.sideNav').addClass('sideNav-scrolled');
-      } else {                                                  // apply position: static
-          $('.sideNav').removeClass('sideNav-scrolled');        // if you scroll above it
-      }
-  });
-}
-
-/* 
 ========= Changing Theme Color Color =========
 */
 function themeColor(){
@@ -85,5 +68,22 @@ function newsletterModal(){
       .modal('show')
     ;
   })
+}
+
+/* 
+========= Sticky nav =========
+*/
+function stickyNav(){
+  var fixedDiv = $('.sideNav');
+  var startFixed = 428;                  // get initial position of the element fixedDiv.offset().top
+  $(window).scroll(function() {                                 // assign scroll event listener
+      var currentScroll = $(window).scrollTop();                // get current position
+
+      if (currentScroll >= startFixed) {                        // apply position: fixed if you
+          $('.sideNav').addClass('sideNav-scrolled');
+      } else {                                                  // apply position: static
+          $('.sideNav').removeClass('sideNav-scrolled');        // if you scroll above it
+      }
+  });
 }
 
