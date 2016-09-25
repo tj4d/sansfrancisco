@@ -30,6 +30,7 @@
 
 @import 'https://fonts.googleapis.com/css?family=Anonymous+Pro:400';
 $black: #0A2126;
+$grey: #d2d2d2;
 
 html {
     -webkit-font-smoothing: antialiased;
@@ -330,11 +331,11 @@ a:hover{
 
 .navItem:nth-last-child(2){
 	.navMarker{
-		background: #F1F1F1;
+		background: $grey;
 	}
 	.navMarker > i{
-		border-left: 10px solid #F1F1F1;
-		border-top: 10px solid #F1F1F1;
+		border-left: 10px solid $grey;
+		border-top: 10px solid $grey;
 	}
 	margin-top: 40px;
 }
@@ -542,9 +543,9 @@ li{
 
 .tags{
 	.tag{
-		border: 2px solid #f1f1f1;
+		border: 2px solid $grey;
 		&:hover{
-			background-color: #f1f1f1;
+			background-color: $grey;
 		}
 	}
 }
@@ -676,7 +677,7 @@ li{
 	}
 	.about, .about a{
 		font-size: 16px;
-		color: #f1f1f1 !important;
+		color: $grey !important;
 	}
 }
 
@@ -821,11 +822,11 @@ li{
 		}
 	}
 	.navMarker{
-		background: #F1F1F1 !important;
+		background: $grey !important;
 	}
 	.navMarker > i{
-		border-left: 10px solid #F1F1F1 !important;
-		border-top: 10px solid #F1F1F1 !important;
+		border-left: 10px solid $grey !important;
+		border-top: 10px solid $grey !important;
 	}
 }
 
