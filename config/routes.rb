@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+	#slackbot
+	namespace :slack do
+		get "reply", to: "bot#reply"
+	end
+
+
 	resources :jobs
 	resources :users
 	get 'tags/:tag', to: 'publications#index', as: :tag
@@ -20,4 +26,5 @@ Rails.application.routes.draw do
 	get 'auth/twitter/callback', to: 'sessions#create'
 	get 'auth/failure', to: "resources#index"
 	get '/signout', to: 'sessions#destroy', as: :signout
+
 end
