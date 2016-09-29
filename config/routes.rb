@@ -26,4 +26,6 @@ Rails.application.routes.draw do
 	get 'auth/twitter/callback', to: 'sessions#create'
 	get 'auth/failure', to: "resources#index"
 	get '/signout', to: 'sessions#destroy', as: :signout
+	get '/privacy', to: 'pages#privacy'
+	get '/terms', to: 'pages#terms'
 end
