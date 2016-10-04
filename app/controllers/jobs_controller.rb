@@ -37,6 +37,16 @@ class JobsController < ApplicationController
       if @job.save
         format.html { redirect_to action: :index, notice: 'Job was successfully created.' }
         format.json { render :show, status: :created, location: @job }
+        job_info = {
+          pretext: "A new design position has been added to the job board.",
+          fallback: "#{@job.positionTitle} at #{@job.companyName}",
+          title: "#{@job.companyName}",
+          title_link: "#{@job.url}?ref=sansfrancis.co",
+          text: "#{@job.positionTitle} working on #{@job.positionDescription}",
+          footer: "Location: #{@job.location}",
+          color: "#B0DAED",
+        }
+        SLACK_NOTIFIER.ping(attachments: [job_info])
       else
         format.html { render :new }
         format.json { render json: @job.errors, status: :unprocessable_entity }
