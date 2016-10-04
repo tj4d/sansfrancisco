@@ -70,6 +70,16 @@ class PublicationsController < ApplicationController
       if @publication.save
         format.html { redirect_to action: :index, notice: 'Publication was successfully created.' }
         format.json { render :show, status: :created, location: @publication }
+        publication_info = {
+          pretext: "A new publication has been added to the library.",
+          fallback: "#{@publication.title} by #{@publication.author}",
+          title: "#{@publication.title}",
+          title_link: "#{@publication.url}?ref=sansfrancis.co",
+          text: "#{@publication.description}",
+          footer: "#{@publication.tag_list}",
+          color: "#B0DAED",
+        }
+        SLACK_NOTIFIER.ping(attachments: [publication_info])
       else
         format.html { render :new }
         format.json { render json: @publication.errors, status: :unprocessable_entity }
