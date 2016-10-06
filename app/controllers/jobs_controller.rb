@@ -46,7 +46,7 @@ class JobsController < ApplicationController
           footer: "Location: #{@job.location}",
           color: "#B0DAED",
         }
-        SLACK_NOTIFIER.ping(attachments: [job_info])
+        JOBS_SLACK_NOTIFIER.ping(attachments: [job_info])
       else
         format.html { render :new }
         format.json { render json: @job.errors, status: :unprocessable_entity }
