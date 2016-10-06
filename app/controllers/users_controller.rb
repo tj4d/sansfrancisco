@@ -17,4 +17,5 @@ class UsersController < ApplicationController
       "Collaboration"=>"collaboration",
     }
   end
+
 end

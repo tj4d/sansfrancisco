@@ -21,21 +21,33 @@
 	  	<p>
 	  		<%= @user.location %>
 	  	</p>
-      <!--
 	  	<% if current_user == @user %>
-      <div class="slack" style="width:100%; height: 50px">
-        <script async defer src="http://slack.sansfrancis.co/slackin.js?large"></script>
-      </div>
-      -->
-    	<div class="navItem">
-      		<div class="navMarker">
-      			<i></i>
-      		</div>
-      		<li>
-  	    		<%= link_to "Sign Out", signout_path %>
-      		</li>
-    	</div>
-  	<% end %>
+
+        <!-- Slack Group
+        <div class="slack" style="width:100%; height: 50px">
+          <script async defer src="http://slack.sansfrancis.co/slackin.js?large"></script>
+        </div>
+        -->
+        <div class="navItem">
+            <div class="navMarker">
+              <i></i>
+            </div>
+            <li>
+              <%= link_to "Slack Group", "http://slack.sansfrancis.co" %>
+            </li>
+        </div>
+
+        <!-- Signout Link -->
+      	<div class="navItem">
+        		<div class="navMarker">
+        			<i></i>
+        		</div>
+        		<li>
+    	    		<%= link_to "Sign Out", signout_path %>
+        		</li>
+      	</div>
+
+    	<% end %>
   	</div>
 
   	<div class="userToolkit">
@@ -52,7 +64,7 @@
   	  			<%= @publication_votes.count %>
   	  		</span>
   	  	</p>
-  	  	</div>
+  	  </div>
 
   	  	<div class="list">
 	  	  	<%= render(:partial => 'userResources')%>
