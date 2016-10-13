@@ -80,7 +80,6 @@ class PublicationsController < ApplicationController
           color: "#B0DAED",
         }
         SLACK_NOTIFIER.ping(attachments: [publication_info])
-        CATALANT_UX_NOTIFIER.ping(attachments: [publication_info])
       else
         format.html { render :new }
         format.json { render json: @publication.errors, status: :unprocessable_entity }
