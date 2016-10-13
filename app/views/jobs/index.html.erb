@@ -60,7 +60,7 @@
       <% @jobs.each do |job| %>
         <% if job.category == category %>  
           <div class="job">
-            <a href="<%= job.url %>?ref=sansfrancis.co" target="_blank" onclick="trackOutboundLink('<%= job.url %>?ref=sansfrancis.co'); return false;">
+            <a href="<%= job.url %>?ref=sansfrancis.co" target="_blank" onfocus="trackOutboundLink('<%= job.url %>?ref=sansfrancis.co'); return false;">
               <h3 class="companyName"> 
                 <%= job.companyName %>
               </h3>
@@ -75,7 +75,7 @@
             </div>
 
             <p class="positionDescription">
-              <a href="<%= job.url %>?ref=sansfrancis.co" target="_blank" onclick="trackOutboundLink('<%= job.url %>?ref=sansfrancis.co'); return false;">
+              <a href="<%= job.url %>?ref=sansfrancis.co" target="_blank" onfocus="trackOutboundLink('<%= job.url %>?ref=sansfrancis.co'); return false;">
                 <span class="positionTitle"><%= job.positionTitle %></span>
               </a>
               working on <%= job.positionDescription %>
