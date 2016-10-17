@@ -32,6 +32,8 @@
 @import 'https://fonts.googleapis.com/css?family=Anonymous+Pro:400';
 $black: #0A2126;
 $grey: #f1f1f1;
+$primary-font: "brandon-grotesque", sans-serif;
+$secondary-font: "Source Sans Pro", sans-serif;
 
 html {
     -webkit-font-smoothing: antialiased;
@@ -48,7 +50,7 @@ body{
 }
 
 h1, h2, h3{
-	font-family: "brandon-grotesque", sans-serif;
+	font-family: $primary-font;
 }
 
 h1 {
@@ -91,7 +93,7 @@ h3 {
 }
 
 p, li, input, .ui.button{
-    font-family: "Source Sans Pro", sans-serif !important;
+    font-family: $secondary-font !important;
     letter-spacing: -0.20px;
     word-spacing: 0.20px;
     text-transform: none;
@@ -418,7 +420,7 @@ li{
 		margin: 0 0 10px 0;
 		text-align: center;
 		width: 100%;
-		font-family: 'brandon-grotesque', sans-serif !important;
+		font-family: $primary-font !important;
 		list-style: none;
 	}
 	.ui.input input{
@@ -530,7 +532,7 @@ li{
 }
 
 .tags, .tag_cloud{
-	font-family: "Source Sans Pro", sans-serif;
+	font-family: $secondary-font;
 	margin-top: 0px !important;
 	padding-bottom: 7px;
 	.tag{
@@ -662,7 +664,7 @@ li{
 }
 
 .ui.icon.buttons .button, .ui.icon.button{
-	font-family: "Source Sans Pro", sans-serif;
+	font-family: $secondary-font;
 	font-weight: 800;
 	margin-top: -25px;
 }
@@ -820,7 +822,7 @@ li{
 			.value{
 				font-weight: 800;
 				font-size: 20px;
-				font-family: 'brandon-grotesque', sans-serif !important;
+				font-family: $primary-font !important;
 			}
 		}
 		.tab:hover{
