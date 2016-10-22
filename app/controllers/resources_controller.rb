@@ -76,7 +76,6 @@ class ResourcesController < ApplicationController
           color: "#B0DAED",
         }
         SLACK_NOTIFIER.ping(attachments: [resource_info])
-        CATALANT_UX_NOTIFIER.ping(attachments: [resource_info])
       else
         format.html { render :new }
         format.json { render json: @resource.errors, status: :unprocessable_entity }
