@@ -544,6 +544,11 @@ li{
 	}
 }
 
+.small{
+	font-size: 1em;
+	display: none !important;
+}
+
 .tags{
 	.tag{
 		border: 2px solid $grey;
