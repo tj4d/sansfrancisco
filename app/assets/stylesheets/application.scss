@@ -54,7 +54,7 @@ h1, h2, h3{
 }
 
 h1 {
-    
+
     font-size: 64px;
     font-weight: 900;
     line-height: 1.20;
@@ -332,7 +332,7 @@ a:hover{
 	}
 }
 
-.navItem:nth-last-child(2){
+.navItem:nth-child(10){
 	.navMarker{
 		background: $grey;
 	}
@@ -763,7 +763,7 @@ li{
 
 /* The Overlay (background) */
 .overlay {
-    /* Height & width depends on how you want to reveal the overlay (see JS below) */    
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */
     height: 0;
     width: 100%;
     position: fixed; /* Stay in place */
@@ -812,7 +812,7 @@ li{
 		margin: -100px 0 20px;
 		box-shadow: 0px 2px 4px #eee;
 	}
-	.tabs{	
+	.tabs{
 		display: inline-block;
 		width: 100%;
 		margin-bottom: 0;
@@ -901,3 +901,52 @@ li{
 		font-size: 18px;
 	}
 }
+
+
+/* #Ads
+================================================== */
+
+#carbonads {
+  display: block;
+  overflow: hidden;
+  padding: 1em;
+  max-width: 370px;
+  width: 100%;
+  border: 1px dashed #b0daed;
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: "Source Sans Pro", sans-serif !important;
+  line-height: 1.5;
+}
+
+  #carbonads a { font-weight: 100 !important; }
+
+
+  #carbonads span {
+    position: relative;
+    display: block;
+    overflow: hidden;
+  }
+
+  .carbon-img {
+    float: left;
+    margin-right: 1em;
+  }
+
+  .carbon-img img { display: block; }
+
+  .carbon-text {
+    display: block;
+    float: left;
+    max-width: calc(100% - 130px - 1em);
+    text-align: left;
+  }
+
+  .carbon-poweredby {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: block;
+    font-size: 10px;
+  }
+
