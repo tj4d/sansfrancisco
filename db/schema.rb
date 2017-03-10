@@ -19,12 +19,12 @@ ActiveRecord::Schema.define(version: 20160907142223) do
   create_table "jobs", force: :cascade do |t|
     t.string   "companyName"
     t.string   "positionTitle"
-    t.text     "positionDescription"
+    t.string   "positionDescription"
     t.string   "location"
     t.string   "category"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
     t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "publications", force: :cascade do |t|
