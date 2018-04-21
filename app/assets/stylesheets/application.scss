@@ -14,13 +14,6 @@
  *= require_self
  */
 
-
-/* Table of Contents
-==================================================
-	#Data Table
-	#Profile
-*/
-
 @import "variables";
 $font-family: $primary-font;
 @import "semantic-ui/elements/button";
@@ -194,8 +187,12 @@ $nav-links: (
 	transition: $transition;
 }
 
-/* #Data Table
-================================================== */
+.resources-section:not(first-of-type) {
+
+  h2 {
+    margin-top: 3rem;
+  }
+}
 
 .breakerBar{
 	height: 10px;
