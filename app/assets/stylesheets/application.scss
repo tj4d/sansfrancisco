@@ -194,8 +194,12 @@ $nav-links: (
 	transition: $transition;
 }
 
-/* #Data Table
-================================================== */
+.resources-section:not(first-of-type) {
+
+  h2 {
+    margin-top: 3rem;
+  }
+}
 
 .breakerBar{
 	height: 10px;
