@@ -1,17 +1,14 @@
-<!-- ****** Large Announcement ****** -->
-<div class="announcement">
+<div class="hero">
+  <h1><%= @user.name %>'s Toolkit</h1>
 </div>
 
-
-<!-- Header
-================================================== -->
-<div class="profile">
-  	<div class="userInformation">
-  	  	<% if @user.image_url != nil %>
-  		<%= image_tag @user.image_url, alt: @user.name, :class => "profile-photo" %>
-  	<% else %>
-  		<%= image_tag "emptyPhoto.png", alt: @user.name, :class => "profile-photo" %>
-  	<% end %>
+<div class="main-content profile">
+  	<div class="sidebar sidebar--user">
+  	  <% if @user.image_url != nil %>
+  		  <%= image_tag @user.image_url, alt: @user.name, :class => "profile-photo" %>
+    	<% else %>
+    		<%= image_tag "emptyPhoto.png", alt: @user.name, :class => "profile-photo" %>
+    	<% end %>
 	  	<h3>
 	  		<%= @user.name %>
 	  	</h3>
@@ -21,77 +18,22 @@
 	  	<p>
 	  		<%= @user.location %>
 	  	</p>
-	  	<% if current_user == @user %>
 
-        <!-- Slack Group
-        <div class="slack" style="width:100%; height: 50px">
-          <script async defer src="http://slack.sansfrancis.co/slackin.js?large"></script>
-        </div>
-        -->
-        <div class="navItem">
-            <div class="navMarker">
-              <i></i>
-            </div>
-            <li>
-              <%= link_to "Join Slack Group", "http://slack.sansfrancis.co" %>
-            </li>
-        </div>
-
-        <!-- Signout Link -->
-      	<div class="navItem">
-        		<div class="navMarker">
-        			<i></i>
-        		</div>
-        		<li>
-    	    		<%= link_to "Sign Out", signout_path %>
-        		</li>
-      	</div>
-
-    	<% end %>
+      <ul id="nav">
+        <% if current_user == @user %>
+          <a href="/signout" class="nav-item">
+            <span class="nav-item__mark"></span>
+            <li class="nav-item__label">Sign Out</li>
+          </a>
+        <% end %>
+      </ul>
   	</div>
-
-  	<div class="userToolkit">
-  		<div class="tabs">
-  	  	  	<p class="tab activeTab" id="toolkitTab">
-  	  		Toolkit <br>
-  	  		<span class="value">
-  	  			<%= @resource_votes.count %>
-  	  		</span>
-  	  	</p>
-  	  	<p class="tab" id="libraryTab">
-  	  		Library <br>
-  	  		<span class="value">
-  	  			<%= @publication_votes.count %>
-  	  		</span>
-  	  	</p>
-  	  </div>
-
-  	  	<div class="list">
-	  	  	<%= render(:partial => 'userResources')%>
-	  	  	<%= render(:partial => 'userPublications') %>
-	  	</div>
-
-	</div>
+    <div id="resources">
+      <%= render(:partial => 'userResources')%>
+    </div>
 </div>
 
 <script>
 	themeColor();
 	navOverlay();
-	$("#userPublications").hide();
-
-	$( "#libraryTab" ).click(function() {
-	  	$( this ).addClass("activeTab");
-	  	themeColor();
-	  	$("#userResources").slideUp(500);
-	  	$("#userPublications").slideDown(500);
-	  	$("#toolkitTab").css('border-bottom', 'none');
-	});
-
-	$( "#toolkitTab" ).click(function() {
-	  	$( this ).addClass("activeTab");
-	  	themeColor();
-	  	$("#userPublications").slideUp(500);
-	  	$("#userResources").slideDown(500);
-	  	$("#libraryTab").css('border-bottom', 'none');
-	});
 </script>
