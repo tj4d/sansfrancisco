@@ -67,15 +67,6 @@ class ResourcesController < ApplicationController
       if @resource.save
         format.html { redirect_to action: :index, notice: 'Resource was successfully created.' }
         format.json { render :show, status: :created, location: @resource }
-        resource_info = {
-          pretext: "A new tool has been added to the #{@resource.category} category of the toolkit.",
-          fallback: "#{@resource.name}: #{@resource.description}",
-          title: "#{@resource.name}",
-          title_link: "#{@resource.url}?ref=sansfrancis.co",
-          text: "#{@resource.description}",
-          color: "#B0DAED",
-        }
-        SLACK_NOTIFIER.ping(attachments: [resource_info])
       else
         format.html { render :new }
         format.json { render json: @resource.errors, status: :unprocessable_entity }

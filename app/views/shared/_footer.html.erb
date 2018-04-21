@@ -1,16 +1,9 @@
 <div class="footer">
-	<div class="footerContent">
-		<p>
-			<a href="https://twitter.com/sansfrancis_co" target="_blank">Twitter</a>&nbsp &nbsp &nbsp
-			<a href="mailto:robinson@greig.io?subject=Sponsor Sans Francisco" target="_blank">Sponsor</a> &nbsp &nbsp &nbsp
-			<%= link_to "Volunteer gigs for designers", "https://www.project501.com/", target: "_blank" %>
-		</p>
-		<p class="about">
-			A project by <a href="/users/robinsongreig">Robinson Greig</a>
-		</p>
-		<p>
-			<%= link_to "Privacy", controller: "pages", action: "privacy" %> &nbsp &nbsp &nbsp
-			<%= link_to "Terms", controller: "pages", action: "terms" %>
-		</p>
+	<div>
+		<p>A project by <%= link_to "Robinson Greig", "http://www.greig.io/", class: "simple-link" %></p>
+	</div>
+	<div>
+		<%= link_to "Privacy", {controller: "pages", action: "privacy"}, class: "simple-link" %>
+		<%= link_to "Terms", {controller: "pages", action: "terms"}, class: "simple-link" %>
 	</div>
 </div>

@@ -1,76 +1,10 @@
-<!-- ****** Primary Navigation ****** -->
 <div class="header">
   <%= link_to root_path do %>
-    <h3 class="logo">
-      Sans Francisco
-    </h3>
+    <h3 class="logo">sans francisco</h3>
   <% end %>
-
-  <div class="desktopTopNav">
-    <% if current_user %>
-      <p>
-        <!-- = link_to "Sign Out", signout_path -->
-        <%= link_to image_tag(current_user.image_url, alt: current_user.name, :class => "avatar"), current_user %> 
-      </p>
-    <% else %>
-      <p>
-        <%= link_to "Sign In", "/auth/twitter" %>
-      </p>
-    <% end %>
-    <%= nav_link "Library", publications_path %>
-    <%= nav_link "Toolkit", root_path %>
-    <button class="ui compact labeled icon button" id="headerNewsletterButton">
-      <i class="mail icon"></i>
-      Subscribe
-    </button>
-  </div>
-
-
-  <!-- Modal
-    ================================================== -->
-  <div class="ui small modal">
-    <i class="close icon"></i>
-    <%= render(:partial => 'shared/newsletterForm')%>
-  </div>
-
-  <!-- Mobile Hamburger
-  ================================================== -->
-  <div class="mobileTopNav">
-    <p class="hamburger">
-      <%= image_tag("hamburger.png", :alt => "Open Menu") %>
-    </p>
-  </div>
-</div>
-
-
-<!-- Mobile Overlay
-================================================== -->
-<div class="overlay">
-  <div class="overlay-content">
-    <p class="cross">
-      <%= image_tag("cross.png", :alt => "Close Menu") %>
-    </p>
-    <h2>
-      <%= link_to "Toolkit", root_path %>
-    </h2>
-    <h2>
-      <%= link_to "Library", publications_path %>
-    </h2>
-    <% if current_page?(resources_path) %>
-      <% @categories.each do |category, category_id| %>
-        <div>
-          <p><a href="#<%= category_id %>"><%= category %></a></p>
-        </div>
-      <% end %>
-    <% end %>
-    <% if current_user %>
-      <h2>
-        <%= link_to "Profile", current_user %>
-      </h2>
-    <% else %>
-      <h2>
-        <%= link_to "Sign In", "/auth/twitter" %>
-      </h2>
-    <% end %>
-  </div>
+  <% if current_user %>
+    <%= link_to image_tag(current_user.image_url, alt: current_user.name, class: "user-avatar"), current_user %>
+  <% else %>
+    <%= link_to "Sign In", "/auth/twitter", class: "login-link" %>
+  <% end %>
 </div>

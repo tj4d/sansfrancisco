@@ -1,5 +1,0 @@
-<%= link_to like_publication_path(publication), method: :get, remote: true, class: 'like_publication' do %>
-	<button class="ui basic compact icon right floated button vote_count">
-		<i class="heart icon" style="color: #F1F1F1"></i> <%= publication.get_likes.size %>
-	</button> 
-<% end %>

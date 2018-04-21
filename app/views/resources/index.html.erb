@@ -1,61 +1,31 @@
-<!-- ****** Large Announcement ****** -->
-<div class="announcement">
+<div class="hero">
   <h1>
     A collection of tools to help designers craft delightful experiences.
   </h1>
 </div>
-
-<!-- Main Content
-================================================== -->
-<div class="mainContent">
-
-  <!-- Side Navigation
-  ************************************************** -->
-  <div class="sideNav">
-    <ul>
-
-      <!-- Category Nav List -->
-      <% @categories.each do |category, category_id| %>
-        <div class="navItem">
-          <div class="navMarker"><i></i></div>
-          <li><a href="#<%= category_id %>"><%= category %></a></li>
-        </div>
-      <% end %>
-    </ul>
-
-    <%= render(:partial => 'shared/newsletterForm')%>
-    <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1696&serve=CVYD42T&placement=sansfrancisco" id="_carbonads_js"></script>
-  </div>
-
-  <!-- Tool List
-  ************************************************** -->
-  <div class="dataTable" id="dataTable">
-    <div class="mobileShow">
-    </div>
-    <!-- Featured Resources -->
-    <div class="featuredResources">
-      <% @resources.each do |resource| %>
-        <% if resource.featured == true %>
-          <%= render(:partial => 'resource', :locals => {:resource => resource})%>
-        <% end %>
-      <% end %>
-    </div>
-
+<div class="main-content">
+  <ul id="nav" class="sidebar">
     <% @categories.each do |category, category_id| %>
-
-      <!-- Category Title -->
-      <h2 id="<%= category_id %>">
-        <%= category %>
-      </h2>
-      <div class="breakerBar"></div>
-
-      <!-- Category Details -->
-      <% @resources.each do |resource| %>
-        <% if resource.category == category %>
-          <%= render(:partial => 'resource', :locals => {:resource => resource})%>
+      <a class="nav-item" href="#<%= category_id %>">
+        <span class="nav-item__mark"></span>
+        <li class="nav-item__label"><%= category %></li>
+      </a>
+    <% end %>
+    <a target="_blank" href="https://twitter.com/home?status=Sans%20Francisco%20is%20a%20collection%20of%20tools%20to%20help%20designers%20craft%20delightful%20experiences.%20www.sansfrancis.co%20via%20%40robinsongreig%20%23design" class="ui circular twitter icon button">
+      <i class="twitter icon"></i> The Internet Loves Lists
+    </a>
+  </ul>
+  <div class="resources" id="resources">
+    <% @categories.each do |category, category_id| %>
+      <div class="resources__section">
+        <h2 id="<%= category_id %>"><%= category %></h2>
+        <div class="breakerBar"></div>
+        <% @resources.each do |resource| %>
+          <% if resource.category == category %>
+            <%= render(:partial => 'resource', :locals => {:resource => resource})%>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     <% end %>
   </div>
-
 </div>
