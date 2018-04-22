@@ -21,6 +21,17 @@ class ResourcesController < ApplicationController
       "Presentation"=>"presentation",
       "Collaboration"=>"collaboration",
       }
+
+      jobs =  HTTParty.get("https://api.seeker.company/v1/jobs", :headers => { "Authorization" => "Token #{ENV["seeker_key"]}" })
+      @job = jobs['results'][rand(0...jobs['count'])]
+      @job_title = @job['job_title']
+      @job_description = @job['job_description']
+      @job_location = @job['job_location']
+      @job_application_link = @job['job_application_link']
+      @creation_date = @job['creation_date']
+      @job_link = @job['job_link']
+      @company_name = @job['company']['name']
+      @company_url = @job['company']['company_url']
   end
 
   def like
