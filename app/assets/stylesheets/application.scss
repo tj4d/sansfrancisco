@@ -281,6 +281,9 @@ a.simple-link {
 }
 
 .sidebar__buttons {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
   margin-top: 2rem;
 }
 
@@ -302,6 +305,14 @@ a.simple-link {
 
     &:hover {
       background-color: $red;
+    }
+  }
+
+  &.color-purple {
+    background-color: $purple;
+
+    &:hover {
+      background-color: $pink;
     }
   }
 
