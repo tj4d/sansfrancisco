@@ -1,24 +1,10 @@
 Rails.application.routes.draw do
-	#slackbot
-	namespace :slack do
-		get "reply", to: "bot#reply"
-	end
-
-
-	resources :jobs
 	resources :users
-	get 'tags/:tag', to: 'publications#index', as: :tag
-	resources :publications do 
-		member do
-		    get "like", to: "publications#like"
-			get "unlike", to: "publications#unlike"
-		end
-	end
-  	resources :resources do 
-	  	member do
-	    	get "like", to: "resources#like"
-	    	get "unlike", to: "resources#unlike"
-	  	end
+	resources :resources do
+  	member do
+    	get "like", to: "resources#like"
+    	get "unlike", to: "resources#unlike"
+  	end
 	end
 	root 'resources#index'
 

@@ -19,6 +19,8 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'acts-as-taggable-on', '~> 4.0'
 gem 'responders', '~> 2.0'
 gem 'semantic-ui-sass'
+gem 'httparty'
+gem 'figaro'
 
 #wrapper to send notifiation to slack webhooks
 gem 'slack-notifier'

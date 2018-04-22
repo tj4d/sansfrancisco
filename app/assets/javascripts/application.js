@@ -42,3 +42,15 @@ function themeColor(){
   }
   $('.activeTab').css('border-bottom', '5px solid' + random_color);
 };
+
+$(window).scroll(function() {
+  var currentScroll = $(window).scrollTop();
+
+  if (currentScroll >= 500) {
+    if (!$('.job-board').hasClass('hidden')) {
+      $('.job-board').css('transform', 'translateY(0)');
+    }
+  } else {
+    $('.job-board').css('transform', 'translateY(8rem)');
+  }
+});

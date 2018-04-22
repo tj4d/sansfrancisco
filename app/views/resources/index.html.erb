@@ -29,3 +29,22 @@
     <% end %>
   </div>
 </div>
+<% if @job.present? %>
+  <div class="job-board">
+    <div>
+      <%= link_to "Designer Jobs", "https://robinsongreig.seeker.company/", target: "_blank" %>
+      <%= link_to(@job_application_link, target: "_blank", class: "job-board__job-link") do %>
+        <span class="job-board__job-highlight"><%= @company_name %></span> is looking for a <span class="job-board__job-highlight"><%= @job_title %></span>
+      <% end %>
+    </div>
+    <a href="#" class="job-board__close"></a>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+$('.job-board__close').click(function(e) {
+  e.preventDefault();
+  $('.job-board').css('transform', 'translateY(8rem)');
+  $('.job-board').addClass('hidden');
+})
+</script>
