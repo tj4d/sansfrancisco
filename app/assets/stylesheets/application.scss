@@ -280,13 +280,32 @@ a.simple-link {
   }
 }
 
+.sidebar__buttons {
+  margin-top: 2rem;
+}
+
 .ui.button.circular {
   font-size: 1.6rem;
-  background-color: $blue;
   transition: $transition;
-  margin-top: 3rem;
+  margin-top: 1rem;
 
-  i.twitter.icon {
+  &.color-blue {
+    background-color: $blue;
+
+    &:hover {
+      background-color: $dark-blue;
+    }
+  }
+
+  &.color-orange {
+    background-color: $orange;
+
+    &:hover {
+      background-color: $red;
+    }
+  }
+
+  i.icon {
     margin-right: 1rem !important;
   }
 }
