@@ -33,6 +33,11 @@ class ResourcesController < ApplicationController
         @job_link = @job['job_link']
         @company_name = @job['company']['name']
         @company_url = @job['company']['company_url']
+      else
+        @job = "Placeholder Job"
+        @job_title = "Senior Product Designer"
+        @company_name = "ueno"
+        @job_application_link = "https://ueno.co/careers/35w2dJg30Im4iSauMwAWaG/product-designer-san-francisco"
       end
   end
 
