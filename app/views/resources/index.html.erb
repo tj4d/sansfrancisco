@@ -41,9 +41,9 @@
   <div class="job-board">
     <div>
       <%= link_to "Designer Jobs", "https://robinsongreig.seeker.company/", target: "_blank" %>
-      <%= link_to(@job_application_link, target: "_blank", class: "job-board__job-link") do %>
+      <a href="<%= @job_application_link %>?ref=sansfrancis.co" target="_blank" onfocus="trackOutboundLink('<%= @job_application_link %>?ref=sansfrancis.co'); return false;" class="job-board__job-link">
         <span class="job-board__job-highlight"><%= @company_name %></span> is looking for a <span class="job-board__job-highlight"><%= @job_title %></span>
-      <% end %>
+      </a>
     </div>
     <a href="#" class="job-board__close"></a>
   </div>
