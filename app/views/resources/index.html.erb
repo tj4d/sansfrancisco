@@ -13,14 +13,14 @@
     <% end %>
     <div class="sidebar__buttons">
       <a target="_blank" href="https://twitter.com/home?status=Sans%20Francisco%20is%20a%20collection%20of%20tools%20to%20help%20designers%20craft%20delightful%20experiences.%20www.sansfrancis.co%20via%20%40robinsongreig%20%23design" class="ui circular color-blue icon button">
-        <i class="twitter icon"></i> The Internet Loves Lists
+        <i class="twitter icon"></i> Do the Twitter thing!
       </a>
       <a target="_blank" href="http://robinsongreig.seeker.company/submit/job" class="ui circular color-orange icon button">
         <i class="bullhorn icon"></i> Post a Job - $20
       </a>
-      <a target="_blank" href="mailto:robinson@greig.io" class="ui circular color-purple icon button">
-        <i class="mail icon"></i> Questions?
-      </a>
+      <!-- <a target="_blank" href="mailto:robinson@greig.io" class="ui circular color-purple icon button">
+        <i class="plus icon"></i> Add/Feature Your Tool
+      </a> -->
     </div>
   </ul>
   <div class="resources" id="resources">
@@ -40,7 +40,7 @@
 <% if @job.present? %>
   <div class="job-board">
     <div>
-      <%= link_to "Designer Jobs", "https://robinsongreig.seeker.company/", target: "_blank" %>
+      <%= link_to "Designer Jobs", "https://robinsongreig.seeker.company/", target: "_blank", class: "m-hidden" %>
       <a href="<%= @job_application_link %>?ref=sansfrancis.co" target="_blank" onfocus="trackOutboundLink('<%= @job_application_link %>?ref=sansfrancis.co'); return false;" class="job-board__job-link">
         <span class="job-board__job-highlight"><%= @company_name %></span> is looking for a <span class="job-board__job-highlight"><%= @job_title %></span>
       </a>

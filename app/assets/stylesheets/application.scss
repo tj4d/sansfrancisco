@@ -291,28 +291,29 @@ a.simple-link {
   font-size: 1.6rem;
   transition: $transition;
   margin-top: 1rem;
+  background: none;
 
   &.color-blue {
-    background-color: $blue;
+    border: 2px solid $blue;
 
     &:hover {
-      background-color: $dark-blue;
+      background-color: $blue;
     }
   }
 
   &.color-orange {
-    background-color: $orange;
+    border: 2px solid $orange;
 
     &:hover {
-      background-color: $red;
+      background-color: $orange;
     }
   }
 
   &.color-purple {
-    background-color: $purple;
+    border: 2px solid $purple;
 
     &:hover {
-      background-color: $pink;
+      background-color: $purple;
     }
   }
 
@@ -398,9 +399,12 @@ a.simple-link {
 }
 
 .job-board__job-link {
-  border-left: 1px solid darken($orange, 20%);
-  margin-left: 2rem;
-  padding-left: 2rem;
+
+  @media (min-width: $desktop) {
+    border-left: 1px solid darken($orange, 20%);
+    margin-left: 2rem;
+    padding-left: 2rem;
+  }
 }
 
 .job-board__job-highlight {
@@ -429,4 +433,12 @@ a.simple-link {
 }
 .job-board__close:after {
   transform: rotate(-45deg);
+}
+
+.m-hidden {
+  display: none;
+
+  @media (min-width: $desktop) {
+    display: inline-block;
+  }
 }
