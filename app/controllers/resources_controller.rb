@@ -22,9 +22,8 @@ class ResourcesController < ApplicationController
       "Collaboration"=>"collaboration",
       }
 
-      jobs =  HTTParty.get("https://api.seeker.company/v1/jobs", :headers => { "Authorization" => "Token #{ENV["seeker_key"]}" })
-      if jobs && jobs['count'] > 0
-        @job = jobs['results'][rand(0...jobs['count'])]
+      @job =  HTTParty.get("https://api.seeker.company/v1/jobs/random", :headers => { "Authorization" => "Token #{ENV["seeker_key"]}" })
+      if @job
         @job_title = @job['job_title']
         @job_description = @job['job_description']
         @job_location = @job['job_location']
@@ -33,11 +32,6 @@ class ResourcesController < ApplicationController
         @job_link = @job['job_link']
         @company_name = @job['company']['name']
         @company_url = @job['company']['company_url']
-      else
-        @job = "Placeholder Job"
-        @job_title = "Senior Product Designer"
-        @company_name = "ueno"
-        @job_application_link = "https://ueno.co/careers/35w2dJg30Im4iSauMwAWaG/product-designer-san-francisco"
       end
   end
 
