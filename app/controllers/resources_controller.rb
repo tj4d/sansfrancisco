@@ -23,7 +23,7 @@ class ResourcesController < ApplicationController
       }
 
       @job =  HTTParty.get("https://api.seeker.company/v1/jobs/random", :headers => { "Authorization" => "Token #{ENV["seeker_key"]}" })
-      if @job
+      if @job.present?
         @job_title = @job['job_title']
         @job_description = @job['job_description']
         @job_location = @job['job_location']
