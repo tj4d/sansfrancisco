@@ -3,7 +3,7 @@
     <a href="<%= resource.url %>?ref=sansfrancis.co" target="_blank" onfocus="trackOutboundLink('<%= resource.url %>?ref=sansfrancis.co'); return false;">
       <div class="resource__favicon" style="background-image: url('https://www.google.com/s2/favicons?domain=<%= resource.url %>');"></div>
       <h3 class="resource__name"><%= resource.name %></h3>
-      <% if resource.created_at >= Date.today-7.days %>
+      <% if resource.created_at >= Date.today-30.days %>
         <div class="resource__label"><span>New</span></div>
       <% end %>
       <% if resource.featured == true %>
