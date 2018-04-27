@@ -24,6 +24,23 @@
     </div>
   </ul>
   <div class="resources" id="resources">
+    <div class="resources__section--new">
+      <div class="recently-added">
+        <h2>Recently Added</h2>
+        <a href="https://twitter.com/home?status=Hey%20%40robinsongreig%20can%20you%20add%20this%20to%20sansfrancis.co%3A" target="_blank">
+          <button class="ui circular color-orange icon button m-hidden">
+            <i class="twitter icon"></i>
+            Suggest a Tool
+          </button>
+        </a>
+      </div>
+      <div class="breakerBar"></div>
+      <% @new_resources.each do |resource| %>
+        <% if resource %>
+          <%= render(:partial => 'resource', :locals => {:resource => resource})%>
+        <% end %>
+      <% end %>
+    </div>
     <% @categories.each do |category, category_id| %>
       <div class="resources__section">
         <h2 id="<%= category_id %>"><%= category %></h2>

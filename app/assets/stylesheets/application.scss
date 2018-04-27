@@ -201,11 +201,15 @@ $nav-links: (
 }
 
 @each $number, $color in $nav-links {
-  .resources__section:nth-of-type(#{$number}) {
+  .resources__section:nth-of-type(#{$number + 1}) {
     .breakerBar {
       background: $color;
     }
   }
+}
+
+.resources__section--new .breakerBar {
+  background: $orange;
 }
 
 .resource__label {
@@ -436,9 +440,18 @@ a.simple-link {
 }
 
 .m-hidden {
-  display: none;
+  display: none !important;
 
   @media (min-width: $desktop) {
-    display: inline-block;
+    display: inline-block !important;
+  }
+}
+
+.recently-added {
+  display: flex;
+  justify-content: space-between;
+
+  .ui.button.circular {
+    margin-top: 0;
   }
 }
