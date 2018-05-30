@@ -25,7 +25,9 @@ class ResourcesController < ApplicationController
       @new_resources = Resource.where(created_at: (Time.now - 30.day)..Time.now).sample(3)
 
       @job =  HTTParty.get("https://api.seeker.company/v1/jobs/random", :headers => { "Authorization" => "Token #{ENV["seeker_key"]}" })
-      if @job.present?
+      print "hellojk"
+      print @job
+      if @job['detail'] != "Not found."
         @job_title = @job['job_title']
         @job_description = @job['job_description']
         @job_location = @job['job_location']

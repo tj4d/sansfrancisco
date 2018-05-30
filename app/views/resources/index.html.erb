@@ -54,12 +54,22 @@
     <% end %>
   </div>
 </div>
-<% if @job.present? %>
+<% if @job['detail'] != "Not found." %>
   <div class="job-board">
     <div>
       <%= link_to "Designer Jobs", "https://robinsongreig.seeker.company/", target: "_blank", class: "m-hidden" %>
       <a href="<%= @job_application_link %>?ref=sansfrancis.co" target="_blank" onfocus="trackOutboundLink('<%= @job_application_link %>?ref=sansfrancis.co'); return false;" class="job-board__job-link">
         <span class="job-board__job-highlight"><%= @company_name %></span> is looking for a <span class="job-board__job-highlight"><%= @job_title %></span>
+      </a>
+    </div>
+    <a href="#" class="job-board__close"></a>
+  </div>
+<% else %>
+  <div class="job-board">
+    <div>
+      <%= link_to "Designer Jobs", "https://robinsongreig.seeker.company/", target: "_blank", class: "m-hidden" %>
+      <a href="https://robinsongreig.seeker.company/submit/job" target="_blank" onfocus="trackOutboundLink('https://robinsongreig.seeker.company/?ref=sansfrancis.co'); return false;" class="job-board__job-link">
+        Hiring a new designer? <span class="job-board__job-highlight">Post your job here!</span>
       </a>
     </div>
     <a href="#" class="job-board__close"></a>
