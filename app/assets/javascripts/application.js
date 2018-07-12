@@ -54,3 +54,10 @@ $(window).scroll(function() {
     $('.job-board').css('transform', 'translateY(8rem)');
   }
 });
+
+var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {
+     'transport': 'beacon',
+     'hitCallback': function(){document.location = url;}
+   });
+}
