@@ -38,17 +38,6 @@
         <% end %>
       <% end %>
     </div>
-    <div class="advertisement">
-      <p class="meta">Sponsor</p>
-      <h3>Bad ideas, sent weekly</h3>
-      <p>Every aspiring entrepreneur has a stack of ideas that they chose not to pursue. While likely flawed, these ideas are still valuable inspiration for other entrepreneurs. We're a group of Harvard MBAs who collect bad ideas, polish them, and publish one new idea each week. Subscribe to get these ideas in your inbox.</p>
-      <a href="https://badideas.carrd.co/" target="_blank">
-        <button class="ui circular color-purple icon button m-hidden">
-          <i class="external alternate icon"></i>
-          Learn More
-        </button>
-      </a>
-    </div>
     <% @categories.each do |category, category_id| %>
       <div class="resources__section">
         <h2 id="<%= category_id %>"><%= category %></h2>
